@@ -1,0 +1,139 @@
+\documentclass[12pt,noauthor,nooutcomes, instructornotes]{ximera}
+
+\author{Monica Delgado and Scott Zimmerman}
+
+\input{../preamble.tex}
+
+
+
+\title{Modular arithmetic}
+
+\begin{document}
+\begin{abstract}
+  A purely mathematical activity that would help us understand something about music.
+\end{abstract}
+\maketitle
+
+%Here's a question: Suppose it is $10$pm. What's the earliest you can wake up, and still get $8$ hours of sleep?
+
+
+
+You have probably noticed that you can do arithmetic with time, but that there's something particular about it.
+
+\begin{instructorNotes}
+I doubt students will think about 24 hour time, but if they do, ask them to give hours as am and pm (since we are looking at times in a single day, so it won't exceed 24 h).
+\end{instructorNotes}
+
+\begin{question} Every day in Pisa, the first train to Rome departs at 2 am, and a new train departs every 4 hours after. 
+\begin{enumerate}
+    \item Write the times in a day at which a train to Rome departs.
+    \item Consider the sequence of numbers (not times) below which starts at 2 and increases by 4. Write the next 4 terms in this sequence.
+    
+    2, 6, 10,
+    
+    \item How are the two sequences above different and how are they similar?
+    %\item Explain how to add hours as in the example above. Do it as if you were explaining this to a friend.
+\end{enumerate}
+\end{question}
+
+
+\begin{question}
+Suppose you sat in a theater to watch the most recent Spiderman movie. You were there for 148 minutes.
+\begin{enumerate}
+    \item How many full hours did you spend in the theater?
+    \item How many extra minutes did you spend in the theater after these full hours?
+    
+    \item Now suppose the movie was extra long and you were in the theater $N$ minutes (where $N$ is a really big integer). How would you determine how many full hours you spent in the theater?
+    
+    \item How would you determine how many extra minutes you spent in the theater after these full hours?
+\end{enumerate}
+\end{question}
+
+To answer the previous questions, it helps to think of an analogue clock.
+
+\centerline{\includegraphics[width=.3\textwidth]{modularArithmetic/Clock.png}}
+
+Every 60 minutes, the minute hand makes one full revolution of the clock. To determine how many minutes after the hour it is, we see how far along the minute hand has turned past 12. Once the minute hand makes it all the way around to 12 again, we start counting over again from 0. For example, suppose it is 3:15. 60 minutes later, we do not say that the time is 3:75; we say that it is 4:15.
+
+Similarly, to determine how long N minutes is in terms of hours, we can look at how many times the minute hand made a full revolution. For example, consider 220 minutes. Let's count by 60s: 60, 120, 180, 240, etc. Notice that 220 is between the 3rd and 4th numbers on the list, so 220 minutes will take 3 full revolutions of the minute hand (180 minutes) plus an additional 40 minutes.
+
+Another way to see this is to remember how we defined the \textbf{remainder} when doing division. If you divide 220 by 60, we get 3 with a remainder of 40. Another way to talk about remainders is by using \textbf{modular arithmetic}. We say that 
+$$
+N = R \pmod{M}
+$$
+if we get a remainder of $R$ when we divide $N$ by $M$,
+and we say ``N is congruent to R modulo M''.
+For example, we write
+$$
+220 = 40 \pmod{60}
+$$
+since, if we divide 220 by 60, we get a remainder of 40. We would say that ``220 is congruent to 40 modulo 60''. Notice in particular that, for example, $180 = 0 \pmod{60}$ since 180 divided by 60 is exactly equal to 3 with remainder 0.
+
+\begin{question}
+Fill in the following and compare your answers to question 1.
+\begin{enumerate}
+\begin{multicols}{2}
+    
+    \item $14 = \smallanswerbox \pmod{12}$
+    \item $18 = \smallanswerbox \pmod{12}$
+    \item $22 = \smallanswerbox \pmod{12}$
+    \item $26 = \smallanswerbox \pmod{12}$
+\end{multicols}
+\end{enumerate}
+\end{question}
+
+
+\begin{question} Fill in the following calculations. You can think in terms of a circle even if you are not working with time. Notice that we put 0 at the top instead of 11 since $11 = 0 \pmod{11}$.
+\begin{center}
+\newcommand*{\mynotes}{0,1,2,3,4,5,6,7,8,9,10}
+\circlenumb{\mynotes}{}
+\end{center}
+%I need a circle with 11 numbers around here
+\begin{enumerate}
+\begin{multicols}{2}
+    
+    \item $18 = \smallanswerbox \pmod{11}$
+    \item $47 = \smallanswerbox \pmod{11}$
+    \item $210 = \smallanswerbox \pmod{11}$
+    \item $330 = \smallanswerbox \pmod{11}$
+\end{multicols}
+
+Here are some more. Try drawing your own circle if it helps.
+
+\begin{multicols}{2}
+    
+    \item $18 = \smallanswerbox \pmod{4}$
+    \item $47 = \smallanswerbox \pmod{4}$
+    \item $32 = \smallanswerbox \pmod{4}$
+    \item $81 = \smallanswerbox \pmod{4}$
+    \item $77 = \smallanswerbox \pmod{4}$
+    \item $50 = \smallanswerbox \pmod{4}$
+\end{multicols}
+\end{enumerate}
+\end{question}
+
+\begin{question}
+Below each number, write what it is congruent to modulo 7.
+
+\begin{tabular}{ccccccccccccccccccccc}
+    1 && 2 && 3 && 4 && 5 && 6 && 7 && 8 && 9 && 10 \\
+    \\
+    \\
+    \\
+    11 && 12 && 13 && 14 && 15 && 16 && 17 && 18 && 19 && 20 \\
+    \\
+    \\
+    \\
+    21 && 22 && 23 && 24 && 25 && 26 && 27 && 28 && 29 && 30 \\
+    \\
+    \\
+    \\
+    31 && 32 && 33 && 34 && 35 && 36 && 37 && 38 && 39 && 40 \\
+    \\
+    \\
+    \\
+    41 && 42 && 43 && 44 && 45 && 46 && 47 && 48 && 49 && 50
+ \\
+\end{tabular}
+\end{question}
+\end{document}

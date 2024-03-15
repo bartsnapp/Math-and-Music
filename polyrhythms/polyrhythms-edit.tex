@@ -1,0 +1,320 @@
+\documentclass[12pt,noauthor,nooutcomes,handout]{ximera}
+
+\author{}
+
+\input{../preamble.tex}
+
+
+
+
+\title{Polyrhythms}
+
+\begin{document}
+\begin{abstract}
+  We introduce polyrhythms.  Which are "poly," meaning "many," rhythms.  So polyrhythms are when we play many rhythms at once.
+\end{abstract}
+\maketitle
+
+
+\begin{instructorNotes}
+As a general resource use
+
+\url{https://www.youtube.com/watch?v=Op9ESW2pmvE}
+
+
+A helpful video for playing polyrhythms:
+
+\url{https://youtu.be/NOWaD8Abq90}
+
+\url{https://www.youtube.com/watch?v=dihQuwrf9yQ&ab\_channel=SteveMould}
+
+
+\url{https://youtu.be/U9CgR2Y6XO4}
+
+ \url{https://youtu.be/Op9ESW2pmvE}
+ 
+\url{https://www.youtube.com/watch?v=c1pejTgLuhA}
+   
+
+Suppose you want certain ratios... how??? 
+
+Debi Note: like this video? \url{https://youtu.be/IU4vfv0onWI}
+
+(this is lead up to:     \url{https://dantepfer.com/blog/?p=277} 
+
+Where he turns polyrhytms into chords. 
+
+Discrete to continuous.
+\end{instructorNotes}
+
+
+
+One instrument playing by itself, solo, can be beautiful. However, when more than one instrument play together, with separate pitch and rhythm, the whole seems greater than the sum of its parts, and what is produced is wondrous.
+
+To understand the combined effect of several instruments at a time, we will start in the simplest possible setting. Suppose we have two simple drum beats played at the same time:
+
+\begin{center}
+\begin{tikzpicture}
+\node at (0,0) {\mbox{
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{2}                 % lines per instrument
+\generalmeter{\meterfrac{3}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+% bar 1
+  \NOtes\qu h \qu h \qu h   
+  \nextstaff
+  \qup h \qsk \qup h\en
+\setrightrepeat
+\endextract}};
+\node at (-2,2) {Two beats};
+\node at (-4,0) {Against};
+\node at (-2,-2) {Three beats};
+\end{tikzpicture}
+\end{center}
+
+Try with your friends to produce these drum beats, with one friend clapping two-claps every second, and second friend clapping three-claps every two seconds. This can be difficult, please don't get discouraged.
+
+
+A (complex) rhythm created by two rhythms played simultaneously is called a 
+\textbf{polyrhythm}. The simplest polyrhythms, like the one above, are when you play $X$ beats against $N$ beats (above we played $2$ against $3$ beats, so $X=2$ and $N=3$).
+
+
+
+\newpage
+
+\begin{mdframed}[style=OutcomeStyle]
+\begin{quote}
+\textbf{Algorithm for writing notes for a single instrument for an ``\textit{X} against \textit{N}'' polyrhythm.}
+\begin{enumerate}
+\item Write $X \times N$ quarter notes.
+\item Mark the first note, and then every $X$th note after that. 
+\item Additionally, mark the first note, and then every $N$th note after that. 
+\item Extend the duration of marked notes by extending it into unmarked notes.*
+\end{enumerate}
+\end{quote}
+\end{mdframed}
+* For example, if a quarter note is marked and has two unmarked quarter notes after it, write those three quarter notes together as a dotted half note.
+
+
+Let's demonstrate by writing our $(2:3)$-polyrhythm above.
+\begin{enumerate}
+\item Write $X \times N$ quarter notes, which in this case would be $2 \times 3 = 6$:
+
+\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+% bar 1
+  \NOTes   \qu h \qu h  \qu h \qu h \qu h  \qu h \en
+\setrightrepeat
+\endextract
+\end{music}
+
+
+\item Mark the first note, and then every $X$th note after that, in this case, every $2$nd note:
+
+\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+% bar 1
+\Notes \cchar{9}{~~*}\qu h \qu h \cchar{9}{~~*}\qu h \qu h \cchar{9}{~~*}\qu h\qu h \en
+\setrightrepeat
+\endextract
+\end{music}
+\item Additionally mark the first note, and then every $N$th note after this, in this case, every $3$rd note:
+
+\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+% bar 1
+\Notes \cchar{9}{~~*}\cchar{11}{~~*}\qu h \qu h \cchar{9}{~~*}\qu h  \cchar{11}{~~*}\qu h \cchar{9}{~~*}\qu h\qu h \en
+\setrightrepeat
+\endextract
+\end{music}
+
+\item Extend duration of marked notes over unmarked notes:
+%\tslur0{h}\ccu{h} \islurd0h\qu h
+
+\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+% bar 1
+\Notes \cchar{9}{~~*}\cchar{11}{~~*}\islurd0h\qu h \tslur0{h}\qu h \cchar{9}{~~*}\qu h  \cchar{11}{~~*}\qu h \cchar{9}{~~*}\islurd0h\qu h \tslur0{h}\qu h \en
+\setrightrepeat
+\endextract
+\end{music}
+\end{enumerate}
+And behold:
+
+\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+% bar 1
+\Notes \hu h \qu h \qu h \hu h \en
+\setrightrepeat
+\endextract
+\end{music}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{question}%% do you understand?
+Now you try!
+
+\begin{enumerate}
+
+\item Write the music for a $(3:4)$ polyrhythm:
+
+
+
+\answermusic
+
+\vspace{0.25in}
+
+\answermusic
+
+\vspace{0.75 in}
+
+\item Now do it for a $(3:5)$ polyrhythm: %%https://onlinesequencer.net/2818540
+
+\answermusic
+
+\vspace{0.25in}
+
+\answermusic
+
+\vspace{0.75 in}
+
+\item One last one: a $(4:6)$ polyrhythm: %%https://onlinesequencer.net/2818540
+
+\answermusic
+
+\vspace{0.25in}
+
+\answermusic
+
+
+%\item An $8$ against $9$ polyrhythm:
+
+%\begin{music}
+%\instrumentnumber{1}           % number of instruments
+%\setstaffs1{2}                 % lines per instrument
+%\generalmeter{\meterfrac{9}{8}}% time stamp. 
+%\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+%\setclefsymbol1\drumclef
+%\startextract
+%% bar 1
+%  \notes  \cu h  \sk \cu h \sk  \cu h \sk \cu h \sk \sk \cu   h \qsk \cu   h \qsk \cu   h \sk \sk \cu   h \qsk \cu   h  
+%  \nextstaff
+%   \islurd0h\cu h \tslur0{h}\cccu{h} \islurd0h\cu h \tslur0{h}\cccu{h} \islurd0h\cu h \tslur0{h}\ccu{h} \islurd0h\cu h \tslur0{h}\cccu{h}  \islurd0h\cu h \tslur0{h}\cccu{h} \islurd0h\cu h \tslur0{h}\cccu{h} \islurd0h\cu h \tslur0{h}\cccu{h} \islurd0h\cu h \tslur0{h}\cccu{h}    \en
+%\setrightrepeat
+%\endextract
+%\end{music}
+
+%\answermusic
+
+\end{enumerate}
+
+\end{question}
+
+
+
+
+
+
+\begin{question}
+Here is a seemingly unrelated statement:
+\[
+a\cdot b = \gcd(a,b)\cdot \lcm(a,b)
+\]
+Let's investigate it and see how it might relate to our polyrhythms.
+\begin{enumerate}
+\item what do GCD and LCM stand for?
+
+\answerspace
+
+\item Demonstrate that the equation is true when $a=2$ and $b=3$. 
+
+\answerspace
+
+
+\item Demonstrate that the equation is true when $a=4$ and $b=6$. 
+
+\answerspace
+
+
+\item Demonstrate that the equation is true when $a=3$ and $b=5$. 
+
+\answerspace
+
+
+\item Demonstrate that the equation is true when $a=8$ and $b=9$. 
+
+\answerspace
+
+\end{enumerate}
+\end{question}
+
+
+\begin{question}
+Let's reflect about polyrhythms. How many notes would $(X:N)$-polyrhythm have?  As an example, look back at out first question and write how many notes the $(2:3)$, $(3:4)$, $(3:5)$ and $(4:6)$ polyrhythms have. Can you see a pattern?  Can you predict how many notes we would have if we wrote out an $(8:9)$ polyrhythm?
+
+
+\end{question}
+
+\begin{instructorNotes}
+The question below is trying to notice that the $(4:6)$ polyrhythm is really just two $(2:3)$ polyrhythms.  We can generalize this relationship as any $(np:nq)$ polyrhythm is just $n$ $(p:q)$ polyrhythms.
+\end{instructorNotes}
+
+\begin{question}
+Let's notice one last thing... Let's have a closer look at the $(4:6)$ polyrhythm.  Does it look like any of the other polyrhythms we wrote notes for?
+\end{question}
+
+%\begin{question} EXTRA
+
+%Congratulations, you've been hired (but not for cash) by the \BAMM~\textit{Mathemusic Museum} to design a display on polyrhythms. Your boss really likes this video (watch until around the $5$ minute mark): 
+%\begin{center}
+%\url{https://youtu.be/Op9ESW2pmvE}
+%\end{center}
+%However, in the video, they state that the nodes are not moving around the shapes at the same speeds, because they need to complete the circuit of their shapes in the same amount of time.  Your boss wants you to redesign this demonstration so that the nodes are moving at the same speed. Solve this problem for your boss (and us too).
+%\end{question}
+
+
+
+\end{document}

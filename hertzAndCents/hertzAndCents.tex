@@ -1,0 +1,223 @@
+\documentclass[12pt,noauthor,nooutcomes,handout,hints]{ximera}
+
+\input{../preamble.tex}
+
+\author{}
+
+
+\title{Hertz and cents}
+
+\begin{document}
+\begin{abstract}
+  We learn about ways of measuring pitch. At the same time, we introduce the idea of octaves.
+\end{abstract}
+\maketitle
+
+\begin{instructorNotes}
+This activity is about measurement. 
+\begin{itemize}
+\item Notes measured by frequency are on an exponential scale. 
+\item Notes measured by cents are on a linear scale. 
+\item Frequency is an absolute scale.
+\item Cents is a relative scale.
+\item Octaves are notes whose frequencies have a ratio of $2^n$ ($n\in\Z$) and whose cents difference are a multiple of $1200$).
+
+\end{itemize}
+
+
+%% see https://www.youtube.com/watch?v=B3QWCrRjkb0
+%% see https://pages.mtu.edu/~suits/notefreqs.html
+
+
+\end{instructorNotes}
+
+
+\begin{question}
+A piano typically has $88$ keys. Here we show the notes corresponding to some of these keys (keys $37$--$61$) along with their frequency in Hertz. Remember that Hertz are the same as cycles or full waves per second.
+\noStaff
+
+
+
+As you would expect from what we learned before, each note has a different frequency.  Note that this diagram includes more notes than what we had before. Some of the notes are named with the same letters, but they have a numerical subindex to distinguish one from the other.
+
+\begin{enumerate}
+%\item What's the \textbf{difference} in frequency between $A_4$ and $A_3$?
+
+%\answerspace
+
+%\item What's the \textbf{difference} in frequency between $A_5$ and $A_4$?
+
+
+%\answerspace
+
+
+\item What's the \textbf{ratio} of the frequencies between $A_4$ and $A_3$?
+
+\answerspace
+
+
+\item What's the \textbf{ratio} of the frequencies between $A_5$ and $A_4$?
+
+\answerspace
+
+\item What's the \textbf{ratio} of the frequencies between $E_5$ and $E_4$?
+
+\answerspace
+
+\item Choose any other two octave notes (two notes with the same letter name but different numbers) and compute the ratio of their frequencies.
+
+\answerspace
+
+\item What pattern do you notice?
+
+\answerspace
+
+\end{enumerate}
+\end{question}
+
+\begin{question} Look at your work above.
+\begin{enumerate}
+
+\item Write the sequence of frequencies (in Hz) of the notes $A_i$ where $i=1,2,3,4,5,6,7$ (that is $A_1, A_2, A_3$, etc.).
+
+\answerspace
+
+
+    \item What do you think would be the frequency in Hertz of the notes $E_3$, $B_5$, and $C_6$? \textbf{Explain your reasoning.}
+
+\answerspace
+
+
+%\item Remember what you've learned at school. Do you know what a sequence like this, that grows by a factor of $2$, is called?
+
+%\answerlines
+
+\begin{instructorNotes}
+In grade school this would be called a geometric sequence, but some students might not remember or even have learned that. If they don't recall this, they can simply skip the question.
+
+The goal is not to know a technical term, but to make a connection with something familiar.
+\end{instructorNotes}
+
+%\item The distance between one note and the next note with the same letter is called an octave. For example, we might say that $A_5$ is one octave above $A_4$ and two octaves above $A_3$. 
+
+%Our ears (and brains) perceive doubling or halving frequencies as the same note. That is the reason why the notes with frequencies $55$ Hz, $110$ Hz, $220$ Hz, $440$ Hz, $880$ Hz are all called $A$s (and same goes for the other letters). 
+
+%Look at the piano diagram, why do you think this is called an octave? \begin{hint}
+%The word \textit{octave} means eighth.\end{hint}
+
+%\answerlines
+\end{enumerate}
+\end{question}
+
+
+\begin{question}
+Another way of assigning numbers to pitches is to use the idea of a ``cent.'' We define the difference between any two adjacent piano keys (including white and black keys) to be $100$ cents. 
+\begin{enumerate}
+\item What's the \textbf{difference} in cents between $A_4$ and $A_3$?
+
+\answerlines
+
+\item What's the \textbf{difference} in cents between $A_5$ and $A_4$?
+
+
+\answerlines
+
+
+\item What's the \textbf{ratio}
+\[
+\frac{\mathrm{cents}(A_5-A_3)}{\mathrm{cents}(A_4-A_3)}?
+\]
+
+\answerlines
+
+
+\item What's the \textbf{ratio}
+\[
+\frac{\mathrm{cents}(G_5-A_3)}{\mathrm{cents}(G_4-A_3)}?
+\]
+
+
+\answerlines
+
+\end{enumerate}
+
+
+\begin{question}
+Compare your work in questions 2 (frequencies) and 4 (cents).
+\begin{enumerate}
+    \item When was the difference preserved?
+    \item When was the ratio preserved?
+\end{enumerate}
+\end{question}
+
+
+%While frequency is an \textit{absolute scale}, cents are a \textbf{relative scale}, meaning it only makes sense (pun intended!) to think of the \textbf{difference}, or \textbf{contrast}, in the cents of a pitch. 
+Frequency is an \textbf{absolute scale}, meaning each note gets a unique number of Hertz for its frequency, different than the frequency of any other note. In contrast, cents make a \textbf{relative scale}, since they refer to \textbf{differences}, or contrast, between the notes. The same number of cents repeats between several pairs of notes. For example, you can see a 200 difference in many different places on the piano. 
+
+\end{question}
+
+\begin{question} %% students will need to figure out A_2
+Now we are going to make \textbf{two plots}, one with frequency and the other with cents.
+\begin{enumerate}
+    \item Plot the frequency of each note.
+    
+\begin{tikzpicture}
+\begin{axis}[
+x=1.5cm,y=0.005cm,
+axis lines=middle,
+ymajorgrids=true,
+xmajorgrids=true,
+xmin=0,
+xmax=8,
+ymin=0,
+ymax=3600,
+xtick={-0.0,1.0,...,8.0},
+%xticklabels={0,$A_1$,,$B_3$,$C_4$,,$D_4$,,$E_4$,$F_4$,,$G_4$,,$A_4$,,$B_4$,$C_5$,,$D_5$,,$E_5$,$F_5$,,$G_5$,,$A_5$},
+xticklabels={0,$A_1$,$A_2$, $A_3$, $A_4$, $A_5$, $A_6$, $A_7$},
+ytick={200.0,400.0,...,3600.0},]
+\end{axis}
+\end{tikzpicture}
+
+\newpage
+\item Now plot the cents difference comparing against the first note on our piano above. For each note, plot the cents difference between that note and the $A_3$ note.
+
+\begin{tikzpicture}
+\begin{axis}[
+x=1.5cm,y=0.0025cm,
+axis lines=middle,
+ymajorgrids=true,
+xmajorgrids=true,
+xmin=0,%-0.7727900000000003,
+xmax=8,
+ymin=0,%-99,
+ymax=7500,
+xtick={-0.0,1.0,...,8.0},
+%xticklabels={0,$A_3$,,$B_3$,$C_4$,,$D_4$,,$E_4$,$F_4$,,$G_4$,,$A_4$,,$B_4$,$C_5$,,$D_5$,,$E_5$,$F_5$,,$G_5$,,$A_5$},
+xticklabels={0,$A_1$,$A_2$, $A_3$, $A_4$, $A_5$, $A_6$, $A_7$},
+ytick={0.0,600.0,...,7200.0},]
+\end{axis}
+\end{tikzpicture}
+\newpage
+\item Describe the plots in your own words. What do they mean? How do they relate to each other?
+
+\answerlines
+
+\answerlines
+\item What is the cents difference between octave notes?
+
+\answerlines
+
+\item How does the frequency change between octave notes?
+
+\answerlines
+
+\item How do you think the answer to the previous two question relates to the plots?
+
+\answerlines
+
+\end{enumerate}
+\end{question}
+
+
+
+\end{document}

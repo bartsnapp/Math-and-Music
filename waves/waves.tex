@@ -1,0 +1,391 @@
+\documentclass[12pt,noauthor,nooutcomes,hints,handout]{ximera}
+
+\author{Deb Stout and Monica Delgado and Bart Snapp}
+
+\input{../preamble.tex}
+
+
+
+\title{Waves}
+
+\begin{document}
+\begin{abstract}
+  We mathematically describe physical waves.
+\end{abstract}
+\maketitle
+%% https://www.khanacademy.org/science/physics/mechanical-waves-and-sound/sound-topic/v/sound-properties-amplitude-period-frequency-wavelength
+
+
+%This activity should try to cover the first minute of this video:
+
+%\url{https://www.youtube.com/watch?v=1Hqm0dYKUx4}
+
+%\url{https://www.youtube.com/watch?v=to_dtcZP1EE&ab_channel=BryanRolfe}
+
+%\url{https://www.youtube.com/watch?v=-k2TuJfNQ9s&ab_channel=PhysicsDemos}
+
+%\begin{instructorNotes}
+%Outline:
+%\begin{enumerate}
+%\item Play video to literally see waves.  Talk about physically what a sound wave is doing: alternating low and high pressure traveling through medium (usually air)
+
+%\item Talk about how we can represent this mathematically, specifically, graphically.  Have a pair of axes: vertical axis tracks air pressure (down is low pressure, up is high pressure), and horizontal axis tracks time  
+
+%\item Review properties of waves: what is amplitude, frequency, wavelength (anything else?)
+
+%\item Connect these properties to the properties of sound (i.e. frequency = pitch)
+
+%\end{enumerate}
+%\end{instructorNotes}
+
+\begin{instructorNotes}
+Explain sound waves. You can use the first 32 seconds of the following video to demonstrate:
+\begin{center}
+\url{https://youtu.be/px3oVGXr4mo}
+\end{center}
+Then also play 1:47 to about 1:59 for another depiction of sound waves. Do it at 0.5 speed.
+
+Next, to illustrate how particles of air get compressed and dispersed, as described in the text below, play the first 26 seconds of this other video:
+\begin{center}
+    \url{https://youtu.be/-_xZZt99MzY}
+\end{center}
+
+\end{instructorNotes}
+
+\textbf{Sound} is a three dimensional phenomenon that is usually invisible to the human eye.
+However, by being clever, we can see sound waves: 
+\begin{center}
+\url{https://www.youtube.com/watch?v=px3oVGXr4mo}
+\end{center}
+Sound is created when particles of air collide, and bounce off of each other. This  compresses and disperses air, forming alternating \textbf{high pressure} and \textbf{low pressure} sections of moving air. Sound moves quickly at around $340$ meters per second at sea-level. Since sound is based on compression waves, formed by molecules of air bouncing against each other, the speed of sound is based on air-pressure and is not affected by pitch or volume of the sound wave.
+
+
+\begin{question}
+A frequent first approach at problems in mathematics is to simplify. In this case, we will focus on the path of a single molecule of air and draw a 2D picture like the following (even when waves are a 3-dimensional phenomenon):
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=12,ymin=-1.5,ymax=1.5,
+                axis lines=center,
+                ticks=none,  
+                width=.9\textwidth,
+                height=3in,
+                xlabel=Time, ylabel=Displacement,
+            clip=false,
+              ]       
+              \addplot [ultra thick, black,smooth, domain=(-.5:12)] {sin(deg(x))};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item Label the parts of the graph where the air particles are farther away from the equilibrium position.
+\item The \textbf{amplitude} is the maximum displacement of a particle from its equilibrium position. Draw a segment indicating the amplitude on the plot above. 
+%\item The \textbf{frequency} is how many full waves (from peak-to-peak or trough-to-trough) we have at a \textit{single location} in a given \textit{time interval}. Identify where the frequency is \textbf{high}, and where it is \textbf{low} on the plot above. 
+\end{enumerate}
+\end{question}
+
+
+\begin{question}
+Besides amplitude, other properties of waves include their \textit{frequency} and \textit{wavelength}. 
+\begin{description}
+\item[\textbf{Frequency}] Tells us how many full cycles occur in a second, with units of Hertz (Hz). One Hertz is one full cycle or full wave in one second. 
+\item[\textbf{Wavelength}] Tells us the physical length (in meters) of one full wave.
+\end{description}
+In each case, we measure from peak to peak, or trough to trough.
+\begin{enumerate}
+\item Find the frequency of the wave below:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=14,ymin=-1.5,ymax=1.5,
+                axis lines=center,
+                %ticks=none,
+                xtick={0,1,...,12},
+                ymajorticks=false,
+                xmajorgrids=true,
+                xticklabels={0,,,,,,1,,,,,,2},
+                width=.9\textwidth,
+                height=3in,
+                xlabel=Seconds, ylabel=Displacement,
+            clip=false,
+            axis on top,
+              ]       
+              \addplot [ultra thick, gray,smooth, samples=100,domain=(0:12)] {sin(pi*deg(x)/3)};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\item Find the frequency of the wave below:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=14,ymin=-1.5,ymax=1.5,
+                axis lines=center,
+                %ticks=none,
+                xtick={0,1,...,12},
+                ymajorticks=false,
+                xmajorgrids=true,
+                xticklabels={0,,,,,,1,,,,,,2},
+                width=.9\textwidth,
+                height=3in,
+                xlabel=Seconds, ylabel=Displacement,
+            clip=false,
+            axis on top,
+              ]       
+              \addplot [ultra thick, gray,smooth, samples=100,domain=(0:12)] {sin(pi*deg(x)/2)};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\item Find the frequency of the wave below:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=14,ymin=-1.5,ymax=1.5,
+                axis lines=center,
+                %ticks=none,
+                xtick={0,1,...,12},
+                ymajorticks=false,
+                xmajorgrids=true,
+                xticklabels={0,,,,,,1,,,,,,2},
+                width=.9\textwidth,
+                height=3in,
+                xlabel=Seconds, ylabel=Displacement,
+            clip=false,
+            axis on top,
+              ]       
+              \addplot [ultra thick, gray,smooth, samples=100,domain=(0:12)] {sin(pi*deg(x)/4)};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{instructorNotes}
+
+This video might be a helpful reference to clarify why some plots have seconds on the horizontal axis, while others have meters.
+
+\url{https://youtu.be/-_xZZt99MzY}
+Play 2:08-2:26 and 3:38-4:36 (avoid the parts about period, as we are not covering that).
+\end{instructorNotes}
+
+\item Find the wavelength of the wave below:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=14,ymin=-1.5,ymax=1.5,
+                axis lines=center,
+                %ticks=none,
+                xtick={0,1,...,12},
+                ymajorticks=false,
+                xmajorgrids=true,
+                xticklabels={0,,,,,,1,,,,,,2},
+                width=.9\textwidth,
+                height=3in,
+                xlabel=Meters, ylabel=Pressure,
+            clip=false,
+            axis on top,
+              ]       
+              \addplot [ultra thick, gray,smooth, samples=100,domain=(0:12)] {sin(pi*deg(x)/3)};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\item Find the wavelength of the wave below:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=14,ymin=-1.5,ymax=1.5,
+                axis lines=center,
+                %ticks=none,
+                xtick={0,1,...,12},
+                ymajorticks=false,
+                xmajorgrids=true,
+                xticklabels={0,,,,,,1,,,,,,2},
+                width=.9\textwidth,
+                height=3in,
+                xlabel=Meters, ylabel=Pressure,
+            clip=false,
+            axis on top,
+              ]       
+              \addplot [ultra thick, gray,smooth, samples=100,domain=(0:12)] {sin(pi*deg(x)/2)};
+            \end{axis}
+    \end{tikzpicture}
+    \end{center}
+    \item Find the wavelength of the wave below:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=14,ymin=-1.5,ymax=1.5,
+                axis lines=center,
+                %ticks=none,
+                xtick={0,1,...,12},
+                ymajorticks=false,
+                xmajorgrids=true,
+                xticklabels={0,,,,,,1,,,,,,2},
+                width=.9\textwidth,
+                height=3in,
+                xlabel=Meters, ylabel=Pressure,
+            clip=false,
+            axis on top,
+              ]       
+              \addplot [ultra thick, gray,smooth, samples=100,domain=(0:12)] {sin(pi*deg(x)/4)};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\end{enumerate}
+
+You may have noticed that the frequency and the wavelength plots are slightly different. While they both represent waves, they use different units. 
+
+On the frequency plots, we have time on the horizontal axis and displacement on the vertical axis. What we are seeing is the path of a single particle as it moves up and down in time. 
+
+On the wavelength plots, we have distance on the horizontal axis and pressure on the vertical axis. What we see here is a snapshot in time of all the particles. The peaks are where the air molecules accumulate, whereas the troughs are where they disperse.
+
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{waves/loudspeaker-waveform.png}
+\end{center}
+\end{question}
+
+
+
+
+\begin{question}
+Let's figure out how \textbf{amplitude}, \textbf{wavelength}, and \textbf{frequency} are related to sound. To do this, check out: 
+\begin{center}
+     \url{https://phet.colorado.edu/sims/html/wave-interference/latest/wave-interference_en.html}
+\end{center}
+\begin{enumerate}
+\item Start by selecting the ``Waves'' option. 
+\item Click on the speaker icon on the right menu bar. 
+\item Check ``Graph'' and ``Play Tone'' and make sure the ``Waves'' radio-button is selected.
+
+You should see something like:
+\begin{center}
+\includegraphics[width=.8\textwidth]{soundGen.png}
+\end{center}
+Click on the green button on the speaker on the left when you are ready to start the animation.
+
+Change the frequency and the amplitude to investigate how the wave and the sound it produces changes. Note: If you select the single wave icon on the bottom left, it will only play a beat, a pulse, rather than a continuous wave.
+
+Write down your conclusions.
+
+\answerlines
+
+
+\end{enumerate}
+\end{question}
+
+\begin{instructorNotes}
+Answer:
+Amplitude is volume.
+
+Low freq is a ``Low'' pitch, 
+HI freq is a ``hi pitch''
+
+Long wavelength is a low pitch, 
+short wavelength is a hi pitch
+\end{instructorNotes}
+
+
+\begin{question}
+We humans can only hear frequencies up to a certain level. If sounds that have very high frequencies are played, we won't detect them: it will seem that nothing is playing. 
+
+The frequencies we are able to hear also change with age. Let's test ourselves and see which ones we catch. We will play a series of frequencies. \textbf{Write down which ones you cannot hear.}
+
+\end{question}
+\begin{instructorNotes}
+Play tones from this website:
+
+\begin{center}
+    \url{https://www.szynalski.com/tone-generator/}
+\end{center}
+\end{instructorNotes}
+
+
+\begin{question}
+Frequency and wavelength are closely related. In fact, they are related by means of the speed of sound according to the following formula:
+\[
+\text{speed of sound} = \text{frequency} \times \text{wavelength}
+\]
+Remember that the speed of sound (at sea level) is 340 meters per second. 
+\begin{enumerate}
+\item \textbf{Explain why}
+\[
+\text{speed of sound} = \text{frequency} \times \text{wavelength}
+\]
+%\begin{hint}
+%If you are stuck, write down what frequency and wavelength mean.
+%\end{hint}
+
+\item The musical note $A$ that we studied in the previous activity has a frequency of $880~\mathrm{Hz}$. Plug in the values of the speed of sound and the frequency. What is the wavelength of this note? 
+
+\answerspace
+
+\begin{instructorNotes}
+Not all students will be familiar with algebra. 
+
+For those students who have not studied algebra, the expectation in parts (b) and (c) is that they solve a multiplication with a missing value:
+
+\[
+880 \times \_\_\_\_ = 340
+\]
+
+Most students will read this as "find a number that, when multiplied by 880, gives 340". They can use their calculator to try numbers and solve. Then, you can help them realize that what they are implicitly doing is dividing.
+
+Part (d) is more of a challenge for students who finish the previous questions faster than the rest of the class, but if a student wants a hint, you can suggest that they think of what they ultimately did in the previous parts and, instead of using the specific numbers 880 or 587.5, they simply write $x$.
+\end{instructorNotes}
+
+\item  The musical note $D$ that we studied before has a frequency of around $587.5~\mathrm{Hz}$. What is its wavelength?
+
+\answerspace
+
+
+\item Suppose a musical note has a frequency of $x~\mathrm{Hz}$.  What is its wavelength?
+
+
+\answerspace
+
+
+\item Why are ``low pitched'' musical instruments big? Why are ``high pitched'' musical instruments small?
+
+\answerlines
+
+
+
+\begin{instructorNotes}
+
+Big instruments generally make lower vibrations
+than small ones. The smaller the
+instrument, the faster the vibrations and
+the higher the sound.
+Inside a flute, there is a smaller
+column of air than inside a trombone.
+A cello has a bigger body and longer
+strings than a violin. It also makes a
+deeper sound.
+
+A piano is like a harp on its side, and there are both long strings for the low notes and shorter strings for the high notes. 
+\end{instructorNotes}
+%\item Explain why the speed of the wave is the product of the wavelength and the frequency.
+%% This is subtle. 
+%% the speed of the wave is the wavelength * freq, because 
+%%
+\end{enumerate}
+\end{question}
+
+
+
+
+
+%\begin{question}
+%    HOMEWORK. Let's learn about ourselves by taking a friendly hearing test:
+%    \begin{center}
+%    \url{https://youtu.be/iN3PBpInNJM}
+%    \end{center}
+%This test is one of the better ones online, because it doesn't expose you to potentially loud pure-tones that could damage your hearing.
+%\begin{enumerate}
+%\item Take the test. According to it, what age is your hearing? What age is your left ear alone? And your right?
+%\item In the video (at time 0:32) he gives the formula:
+%\[
+%20925 - (\text{Age} \times 166) = \text{Typical Highest Audible Frequency}
+%\]
+%Use this formula to calculate your highest audible frequency. \textbf{Explain what you plugged in and why.  Then also write a sentence interpreting your output.}
+%  \end{enumerate}
+%\end{question}
+
+\end{document}

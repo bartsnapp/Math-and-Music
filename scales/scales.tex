@@ -1,0 +1,258 @@
+\documentclass[12pt,noauthor,nooutcomes, instructornotes]{ximera}
+
+\author{}
+
+\input{../preamble.tex}
+
+
+
+\title{Scales}
+
+\begin{document}
+\begin{abstract}
+  We explore the major scales.
+\end{abstract}
+\maketitle
+
+%\url{https://onlinesequencer.net/2760870}
+
+
+
+
+ 
+ 
+Recall the $700$ step circle from the previous section. Let's put the note $C$ at the top and identify a particular collection of notes:
+
+\begin{center}
+\newcommand*{\mynotes}{$C$,$G$,$D$,$A$,$E$,$B$,$F\sharp$,$C\sharp$,$G\sharp$,$D\sharp$,$A\sharp$,$F$}
+\begin{tikzpicture}[->,   thick,main node/.style={},]
+  \newcommand*{\MainNum}{12}
+  \newcommand*{\MainRadius}{3cm} 
+  \newcommand*{\MainStartAngle}{90}
+  % Print main nodes, node names: p1, p2, ...
+  \path
+    (0, 0) coordinate (M)
+    \foreach \t [count=\i] in {1,...,12} {
+      +({1-\i)*360/\MainNum + \MainStartAngle}:\MainRadius)
+      node[main node, align=center] (species_\i) {\GetListMember{\mynotes}{\i}}
+    }
+  ;  
+\draw[-] (-70:4) arc (-70:130:4) -- (130:2) arc (130:-70:2) -- (-70:4);
+
+  % Calculate the angle between the equal sides of the triangle
+  % with side length \MainRadius, \MainRadius and radius of circle node
+  % Result is stored in \p1-angle, \p2-angle, ...
+  \foreach \i in {1, ..., \MainNum} {
+    \pgfextracty{\dimen0 }{\pgfpointanchor{species_\i}{north}} 
+    \pgfextracty{\dimen2 }{\pgfpointanchor{species_\i}{center}}
+    \dimen0=\dimexpr\dimen2 - \dimen0\relax 
+    \ifdim\dimen0<0pt \dimen0 = -\dimen0 \fi
+    \pgfmathparse{2*asin(\the\dimen0/\MainRadius/2)}
+    \global\expandafter\let\csname p\i-angle\endcsname\pgfmathresult
+  }
+
+  % Draw the arrow arcs
+  \foreach \i [evaluate=\i as \nexti using {int(mod(\i, \MainNum)+1}]
+  in {1, ..., \MainNum} {  
+    \pgfmathsetmacro\StartAngle{   
+      (\i-1)*360/\MainNum + \MainStartAngle
+      + \csname p\i-angle\endcsname
+    }
+    \pgfmathsetmacro\EndAngle{
+      (\nexti-1)*360/\MainNum + \MainStartAngle
+      - \csname p\nexti-angle\endcsname
+    }
+    \ifdim\EndAngle pt < \StartAngle pt
+      \pgfmathsetmacro\EndAngle{\EndAngle + 360}
+    \fi
+    \draw[<-]
+      (M) ++(\StartAngle:\MainRadius)
+      arc[start angle=\StartAngle, end angle=\EndAngle, radius=\MainRadius]
+       node[midway,above,sloped] {\tiny{700}};    
+    ;
+  }
+\end{tikzpicture}
+%circleTour{\mynotes}{700}
+\begin{tikzpicture}
+
+
+\end{tikzpicture}
+\end{center}
+
+\begin{question}
+Recall also the image of the keyboard:
+
+
+\ttPianoNoStaff
+
+
+
+\begin{enumerate}
+\item What is special about the notes that we highlighted in the circle?
+
+\answerlines
+
+\answerlines
+
+
+%\textbf{Any short arc (say less than a quarter of the circle) of notes should be somewhat harmonious with each other}. This specific arc can be viewed as a circle of $7$ notes. 
+%\begin{center}
+%\newcommand*{\mynotes}{$C$,$\bullet$,$D$,$\bullet$,$E$,$F$,$\bullet$,$G$,$\bullet$,$A$,$\bullet$,$B$}
+%\circleTour{\mynotes}{100}
+%\end{center}
+%If we put these notes in piano order and start at a specific $C_i$ we find:
+
+\item Here are the notes corresponding to the white keys starting at $C$ along with the step in cents from each note to the next: 
+\[
+C \lto^{200} D \lto^{200} E \lto^{100} F \lto^{200} G \lto^{200} A \lto^{200} B \lto^{100} C
+\]
+
+    \item Why are there $200$ steps as well as $100$ steps?
+\begin{instructorNotes}
+Answer: The 200 steps occur when there's a black key in between the two white keys.
+\end{instructorNotes}
+
+\item  Go back to the online sequencer:
+
+\begin{center}
+    \url{https://onlinesequencer.net/}
+  \end{center}
+  
+ Use it to write the tour above as in the picture below. How does it sound?
+ 
+\begin{center}
+\includegraphics[width=0.6\textwidth]{scales/C-major.png}
+\end{center}
+
+This particular tour of $7$ notes is called the \textbf{C-major scale}, and it explains why a piano's keys are laid out like they are!
+
+\textbf{History time:} In the middle ages, the original western religious music was written only using only the 7 notes in the C-major scale, so the original pipe organs used in churches only needed keys for these 7 notes (and their octaves).
+(Why did they only use these notes? You'd need to ask someone from the middle ages to find out.)
+
+\end{enumerate}
+\end{question}
+
+\begin{question}
+Let's write the \textbf{F-major scale}.
+
+\begin{enumerate}
+\item Start with the note $F$, and use the same cent steps as in the previous question to determine the other 6 notes in the scale:
+
+\[
+F \lto^{200} \smallanswerbox \lto^{200} \smallanswerbox  \lto^{100} \smallanswerbox  \lto^{200} \smallanswerbox  \lto^{200} \smallanswerbox  \lto^{200} \smallanswerbox  \lto^{100} \smallanswerbox 
+\]
+
+\item What note appears in the F-major scale which did not appear in the C-major scale?
+
+\begin{instructorNotes}
+Answer: $A \sharp$
+\end{instructorNotes}
+
+\item Sven is a piano player from the middle ages. Suppose that he has a song which uses all of the notes in the C-major scale. If he wants to transpose the song to the F-major scale, what should he do with each note in the song? Why?
+
+\begin{instructorNotes}
+Remember: to transpose a song, move each note up or down by the same number of cents.
+
+Answer: Move each note up 500 cents or each note down 700 cents since we transpose $C$ to $F$ by moving up 500 or down 700.
+\end{instructorNotes}
+
+\item Would Sven be able to play the new song on his 7 note pipe organ? Why or why not?
+
+\begin{instructorNotes}
+Answer: No. There is no key for $A\sharp$.
+\end{instructorNotes}
+
+\textbf{History time:} As religious music evolved, people started writing songs in different major scales. As they did, they realized that their 7 note pipe organ did not have enough notes to play all of the songs. They needed new organs with more keys.
+
+First, they built an organ with the 7 original notes in the C-major scale plus an extra key between $A$ and $B$ to account for the new note in the F-major scale. As they wrote more complicated music, they needed new organs with even more keys.
+
+Unfortunately, having so many keys made the organ too complicated to play. Since the notes in the C-major scale were still the most commonly played, they kept the keys for those notes big and white. The other notes were relegated to smaller keys, and they were painted black since they were used less often. This is why the modern piano looks the way it does!
+
+\end{enumerate}
+\end{question}
+
+\begin{question}
+Any tour of 7 notes with the following sequence of steps is called a \textbf{major scale}:
+\[
+200, \quad 200, \quad 100,\quad 200,\quad 200,\quad 200,\quad 100
+\]
+Since you can take this tour starting on any one of the $12$ essentially different notes, there are $12$ major scales. Write them all.
+
+\answerlines
+
+\answerlines
+
+\answerlines
+
+\answerlines
+
+\end{question}
+
+
+
+
+\begin{question}
+Here is the $700$ step circle again:
+\begin{center}
+\newcommand*{\mynotes}{$C$,$G$,$D$,$A$,$E$,$B$,$F\sharp$,$C\sharp$,$G\sharp$,$D\sharp$,$A\sharp$,$F$}
+\circleTour{\mynotes}{700}
+\end{center}
+It is called the \textbf{Circle of fifths}. 
+%But why is it called the ``Circle of fifths?'' Consider the major scales.  $700$ cents from any given note is the fifth note of the major scale starting with that note.  Demonstrate understanding by identifying the fifth of each major scale. 
+\begin{enumerate}
+    \item Go back to the major scales you wrote on the previous question and underline the fifth note on each scale. Then explain why the circle above is called the Circle of fifths.
+
+\answerlines
+
+\answerlines
+
+
+    \item Why does it makes sense that taking a $700$ step from a given note ends up being the same as the fifth note on its major scale?
+    \begin{instructorNotes}
+    Answer: Because the first four cents steps on how you build a major scale add up to $700$: $200+200+100+200$
+    \end{instructorNotes}
+\end{enumerate}
+\end{question}
+
+%\begin{question}
+%Write out the major scales of $C$, $E$, and $G\sharp$. Compare and contrast them. 
+%\end{question}
+
+
+\begin{question}
+A \textbf{harmonic major scale} is obtained by changing a single note in a major scale.
+
+\begin{enumerate}
+    \item Choose any one of the major scales that you listed in question 3. Decrease the 6th note of your chosen scale by 100 cents, and write the new scale below.
+
+\answerspace
+
+
+    You just wrote the corresponding harmonic major scale.
+    
+    \item Encode this new scale in the sequencer (as you did with the C-major scale before) and listen to it. How does it sound?
+
+\answerspace
+
+
+\answerspace
+
+
+\answerspace
+
+
+    
+    Changing the scale of a song affects the feeling and mood that the song conveys!
+\end{enumerate}
+\end{question}
+
+
+
+\begin{center}
+        \includegraphics[width=.7\textwidth]{scales/Diletsky_circle.jpg}
+        
+        The circle of fifths from \emph{Idea grammatikii musikiyskoy} (Moscow, 1679) by Nikolay Diletsky. (Public domain.)
+\end{center}
+
+
+\end{document}

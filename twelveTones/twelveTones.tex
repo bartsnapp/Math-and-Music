@@ -1,0 +1,137 @@
+\documentclass[12pt,noauthor,nooutcomes, handout]{ximera}
+
+\author{}
+
+\input{../preamble.tex}
+
+
+
+\title{Twelve tones}
+
+
+\begin{document}
+\begin{abstract}
+    We explain why there are $12$ tones.
+\end{abstract}
+\maketitle
+
+
+%    The idea \url{https://youtu.be/rdIxmRLPS_M}
+    
+%    Also my notes -- in our shared folder
+
+
+
+
+
+We can (almost!) tour the $12$ tones of music (ignoring octaves), by taking the frequency of the tone, and multiplying by 
+\[
+\frac{3^{12}}{2^n}
+\]
+In particular, if we do this, we had hoped to arrive at the original frequency at the end, so 
+\[
+\frac{3^{12}}{2^n} =1
+\]
+but this would mean
+\[
+3^{12} = 2^n
+\]
+which is impossible for a whole number $n$.
+
+
+So here is a radical idea: Let's try to ``reinvent'' music, and see if we can resolve the issue above. As humans, we essentially made \textbf{one assumption} above, and that is that there are $12$ tones. 
+\begin{quote}
+Would the mathematics of music work out better if there were a different number of tones in music? 
+\end{quote}
+It is enough to find a fraction $\frac{n}{m}$ such that
+\[
+2^{n/m} = 3.
+\]
+
+
+
+
+
+
+
+
+\begin{question}
+Through trial and error, your friend \textit{Mathemusical Mac} finds that 
+\[
+2^{1.58496250072115618145373894394}\approx 3
+\]
+Find three different fractions, 
+\[
+\frac{n}{m} \approx 1.58496250072115618145373894394
+\]
+where $m$ is less than $50$.
+
+\end{question}
+
+
+
+\begin{question}
+   The idea,
+   \begin{quote}
+   that we want to approximate a real number with a fraction with a small denominator,
+   \end{quote}
+   arises in different contexts, and mathematicians have a method of finding such fractions. 
+    Set:
+\[
+x_1 = 1.58496
+\]
+Write $x_1$ in terms of its whole-number part and its fractional part:
+\[
+x_1 = \mathbf{1} + (x_1-1)
+\]
+Now look at the reciprocal of $(x_1-1)$:
+\begin{align*}
+x_2 &=\frac{1}{x_1-1} \approx 1.70952\\
+x_2 &= \mathbf{1} + (x_2-1)
+\end{align*}
+Continue on:
+\begin{align*}
+x_3 &=\frac{1}{x_2-1} \approx 1.4094\\
+x_3 &= \mathbf{1} + (x_3-1)
+\end{align*}
+Again, again!
+\begin{align*}
+x_4 &=\frac{1}{x_3-1} \approx 2.4426\\
+x_4 &= \mathbf{2} + (x_4-2)
+\end{align*}
+One last time:
+\begin{align*}
+x_5 &=\frac{1}{x_4-2} \approx 2.25938\dots\\
+x_5 &= \mathbf{2} + (x_5-2)
+\end{align*}
+Whew, now I'm tired, we could continue on but I think it is time to
+stop. Plugging back in, we find a crazy ``continued'' fraction:
+\[
+ 1.58496\approx 1 + \dfrac{1}{1+\dfrac{1}{1 + \dfrac{1}{2 + \dfrac{1}{2}}}}
+\]
+\begin{enumerate}
+\item Simplify the fraction:
+\[
+ 1 + \dfrac{1}{1+\dfrac{1}{1 + \dfrac{1}{2 + \dfrac{1}{2}}}}
+\]
+
+\item Find a ``continued fraction'' for $\sqrt{2}$.
+\item Find a ``continued fraction'' for $\sqrt{3}$.
+\item Find a ``continued fraction'' for $\pi$.
+\end{enumerate}
+\end{question}
+
+
+
+\begin{question}
+
+\end{question}
+
+
+
+
+
+
+
+
+\end{document}

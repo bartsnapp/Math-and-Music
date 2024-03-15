@@ -1,0 +1,217 @@
+\documentclass[12pt,noauthor,nooutcomes,hints,instructornotes]{ximera}%% SEE: https://www.overleaf.com/project/626c378b4e3e27903576f685
+\author{}
+
+\input{../preamble.tex}
+
+
+
+\title{Projects}
+
+\begin{document}
+
+
+\section{The Pythagorean Scale and Equal Temperament}
+
+For this project, make sure you have completed the first two tasks for the "Strings and Overtones" topic.
+
+This project takes you through some calculations to explain why there are 12 tones and learn about Pythagorean tuning vs Equal Tempered tuning.
+
+%Imagine you are a philosopher from Ancient Greece and you are trying to put some structure into music. You have decided that you want to design a system of notes, much like the alphabet, but for music. You know that music is made of sound waves, and that each frequency corresponds to a different sound. Rather than dealing with an infinite number of sounds coming from different frequencies, you think it would be a good idea to choose a few selected frequencies, give them a name, and combine these few in different ways to make music.
+
+\textit{Let's begin...}\\
+There once was a philosopher from Ancient Greece who was experimenting with music. He took a string that is taut and fixed at both ends and played a note. He loved fractions so naturally he wonder what would happen if he used a string that is half the length of the first one. He played it and...
+
+\begin{question}
+ What did he get?  How was the note of this new string related to the note of his original string?
+ \end{question}
+
+He thought that was pretty neat so he wondered what would happen if he continued with his fractions, meaning, what if he cut the string to $\frac{1}{3}$ of the original length. And then $\frac{1}{4}$, and then $\frac{1}{5}$ and so on.
+
+
+\begin{question}  Check back on your work from Strings and Overtones (Thursday). Let  $L$ be the wavelength of a string. 
+
+\begin{enumerate}
+    \item Write a formula to calculate the wavelength of a string of length $\frac{1}{n}$ the length of the original string.
+\begin{hint}
+Start with some easier examples like if you cut the string in half or to a third.
+\end{hint}
+
+\item Now let $f$ be the frequency of that same string. How is this frequency changing as we cut the string to a fraction of it? Write a formula that relates the frequency of the original string, $f$, with the frequency of a string $\frac{1}{n}$ the original length.
+  \end{enumerate} 
+  \end{question}
+\begin{question} Suppose that the note the philosopher started with is $C_4$, which has a frequency of about 261.6 Hz. Use this value to figure out what frequencies the philosopher got from cutting the length as described before. Record them in a table like this one.
+
+\begin{center}
+\renewcommand{\arraystretch}{3}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+\footnotesize{Fraction of length} & \footnotesize{Original (1)} & \hspace{0.03in} $\frac{1}{2}$ \hspace{0.03in} & \hspace{0.03in} $\frac{1}{3}$ \hspace{0.03in} & \hspace{0.03in} $\frac{1}{4}$ \hspace{0.03in} & \hspace{0.03in} $\frac{1}{5}$ \hspace{0.03in} & \hspace{0.03in} $\frac{1}{6}$ \hspace{0.03in} & \hspace{0.03in} $\frac{1}{7}$ \hspace{0.03in} & \hspace{0.03in} $\frac{1}{8}$ \hspace{0.03in} & \hspace{0.03in} $\frac{1}{9}$ \hspace{0.03in} & \hspace{0.02in} $\frac{1}{10}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{11}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{12}$ \hspace{0.02in}    \\\hline
+Frequency & &&&&&&&&&&& \\\hline
+\end{tabular}
+\end{center}
+\end{question}
+\begin{question} You will notice that he got pretty high frequencies. To be able to work with this more easily, let's bring all the notes down within a single octave.
+
+Take each frequency (except the first two) and bring them down, one octave at a time, until you find a value that is between $C_4$ and $C_5$ (261.6 Hz to 523.2 Hz). You can remind yourself from the Hertz task how to calculate the frequency of a note that is one octave down.
+
+Add a row to your table and record these values, too.
+
+\begin{center}
+\renewcommand{\arraystretch}{3}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+\footnotesize{Fraction of length} & \footnotesize{Original (1)} & \hspace{0.02in} $\frac{1}{2}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{3}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{4}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{5}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{6}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{7}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{8}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{9}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{10}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{11}$ \hspace{0.02in} & \hspace{0.02in} $\frac{1}{12}$ \hspace{0.02in}    \\\hline
+Frequency & &&&&&&&&&&& \\\hline
+\footnotesize{Octave(s) Down} & &&&&&&&&&&&\\
+\footnotesize{Frequency} & &&&&&&&&&&& \\\hline
+\end{tabular}
+\end{center}
+\end{question}
+\begin{question} Look back to the piano image we used in the Hertz task. Find the philosopher's frequencies. Which notes did the philosopher get with his method? (Note that you won't find the exact values, but look for ones which are approximately the same.)
+\end{question}
+
+\begin{question} 
+Let's now think a little more abstractly.  Notice that this process would have worked similarly no matter what note the philosopher's original string played. Since we are imagining that we don't know what this frequency is, let's call it $f$. To get the frequency of the note produced by a third of the length you should have multiplied by 3, but the result would have been beyond the range we wanted, so you then divided by 2. All in all, the frequency of this note is $\frac{3}{2}f$. Following this example, write down the fractions by which you ended up multiplying the original frequency to get the other notes.
+
+Note that these fractions should be:
+\[
+\dfrac{\text{the number you multiplied by to obtain the frequency of the fraction string}}{\text{the number you divided by to bring down as many octaves as needed}}
+\]
+
+Write these fractions in ascending order.
+
+\end{question}
+
+
+What you worked on above is one way of deriving the 12 note scale used in Western music, commonly attributed to Pythagoras (an ancient Greek philosopher/mathematician), although others had worked on the idea before. Let's now look at another way of deriving it.
+
+%The question is how to go about selecting those notes. You are a wise one and know better than choosing at random, so you decide to look for a more thorough method. You think: "Let's say I already chose one note and I want to find other notes that make a good system with that first one. I'm still not sure how I will choose the first one, so for the moment, I'm just going to say that its frequency is $f$."
+
+Again, we start with a note and we will call its frequency $f$. As you know, the same note an octave up would be $2f$. The next note that Pythagoras obtained was $\frac{3}{2}f$:
+    
+%You then play a note with twice the frequency, meaning $2f$, the second harmonic, and realize that it sounds pretty similar to the first one.
+
+%\textbf{Remember your work from this week: What is the relation between a note with a  given frequency and the note with twice that frequency?}
+    
+%But this note sounds too similar to the first.  You want to find something that combines well but does not sound so similar. So, you do the obvious thing, you use the next harmonic, the third, multiplying the frequency by 3. A note with a frequency of $3f$ is too far from the original $f$, though. It would have a pitch higher than $2f$. Since $f$ and $2f$ sound so similar, you think it would make more sense to choose all your notes between these two frequencies. So instead of using $3f$, you select the note one octave below: $\frac{3f}{2}$. So, now you have 3 notes with the following frequencies:
+
+\[ f \qquad \frac{3f}{2} \qquad 2f
+\]
+    
+%So far so good. You play the notes and think this $\sfrac{3}{2}$ factor seems to work well, so you state the formal idea of your music scale:
+
+The idea is to create a scale by successively applying this factor of $\frac{3}{2}$ and bringing down an octave when necessary to stay within a single octave as before, between $f$ and $2f$.
+
+For example, to get the next note, we would do:
+
+
+%Following your shiny new rule, you now use this factor of $\frac{3}{2}$ on the last note you added to the scale, the one that has a frequency of $\frac{3}{2}f$:
+
+\[
+\frac{3}{2}f\times\frac{3}{2}=\frac{9}{4}f
+\]
+
+Since $\frac{9}{4}f$ is not between $f$ and $2f$, as $\frac{9}{4}>2$, we need to bring the note down an octave by dividing it by $2$.  At this point, the scale is:
+
+\[ f \qquad \frac{9}{8}f \qquad \frac{3}{2}f \qquad 2f
+\]
+
+
+
+
+\begin{question} Now you try! 
+\begin{enumerate}
+\item To continue with this process, take the last note we created and multiply it by the chosen factor: $\frac{3}{2}$.
+    \item Check if the resulting number is between $f$ and $2f$. If it isn't, then bring it down an octave. This is the new note.
+    \item Repeat the process a couple more times, until you have seven notes.
+    \end{enumerate}
+\end{question}    
+    
+ \begin{question}   All of the notes above were added by multiplying a note on the list by $\sfrac{3}{2}$, except $2f$. That one was just added by raising an octave. Would it be possible to add a note to the scale so that its third harmonic is the note with frequency $2f$?
+    
+Find the frequency of a note such that, when multiplied by $\frac{3}{2}$ gives $2f$. Meaning, what can we multiply by $\frac{3}{2}$ that can simplify to $2f$? That is the last note on the scale. 
+\end{question}     
+\begin{question}Organize the scale by writing the fractions in order, as we were doing above. You should have eight notes total, including $f$ and $2f$.
+\end{question} 
+    
+\begin{question} For each note on the scale, calculate its ratio with the previous note. Meaning, take the frequency of a note, and divide it by the frequency just to the left of it in your ascending list. What we are calculating here are the "intervals" between the notes.
+\begin{center}
+\renewcommand{\arraystretch}{3}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+\footnotesize{Ratio of:} & $\frac{second}{first}$ & $\frac{third}{second}$ & $\frac{fourth}{third}$ & $\frac{fifth}{fourth}$ & $\frac{sixth}{fifth}$ & $\frac{seventh}{sixth}$ & $\frac{eighth}{seventh}$    \\\hline
+Ratio: & &&&&&&  \\\hline
+\end{tabular}
+\end{center}
+    \begin{hint} Most of the ratios should be equal. In music, this is called a \textit{major second} or a \textit{whole tone}. The other ratio you will find, which only repeats twice, is a semi-tone.   \end{hint}
+\end{question}     
+    
+\begin{question}Remember that we created this scale in the abstract, without choosing a specific note to start with. Let's now finalize our scale by choosing $C_4$ again as our base note and calculating the frequencies of all the notes on the scale. (Basically, substitute $f$ in your scale with 261.6 Hz.)\end{question} 
+    
+ The problem with this scale is that if you choose another note on the scale as your new starting note, most of the notes will be the same, but not all of them. Hence, you end up with a bunch of different scales. 
+ %The original idea of using a simple ratio like $\sfrac{3}{2}$ was to get simple, easy to use ratios and produce a very regular scale.
+ 
+\begin{question}  Use the frequency of $G_4$ as your new $f$ and compute the frequencies of the scale with this new $f$. Compare with the values you obtained in the previous question. Do you get the same notes?\end{question} 
+ 
+\textbf{Bonus:} Can you pin point what in the previous questions makes it obvious that we won't get the same notes even if we start on one of the notes on the $C$ scale?
+ 
+By repeating this process, you would end up with 13 different scales and many different notes, although for some, their frequencies are very close, so they are heard as the same note. By reducing notes that are very similar, music theory ended up with 12 notes.
+
+
+\begin{question} Compare the fractions on this scale (in question 9) with the fractions on the first scale. Which fractions on one scale are close to a fraction on the other?
+\begin{hint}
+Convert the fractions to decimal values so you can compare more easily.
+\end{hint}
+\end{question} 
+
+Fast forward to the sixteenth century and someone thought that, to avoid the issue of multiple scales, it might be a better idea to split the octave interval in 12 equal intervals. You might be thinking this would be easy to do by simply dividing by 12, but remember frequency does not grow linearly, but exponentially. We need multiplicative, not additive, intervals. This is just as easy as dividing by 12 though, at least with a calculator. The interval needed is:
+
+\[\sqrt[12]{2}\approx1.059
+\]
+This 12th root can also be written as $2^{\frac{1}{12}}$.
+
+What this means is that the frequency of the notes in this scale, called \textit{equal temperament}, are related as follows:
+
+\[
+A \lto^{\times\sqrt[12]{2}} A\sharp \lto^{\times\sqrt[12]{2}} B \lto^{\times\sqrt[12]{2}} C \lto^{\times\sqrt[12]{2}} C\sharp \lto^{\times\sqrt[12]{2}} D \lto^{\times\sqrt[12]{2}} D\sharp 
+\lto^{\times\sqrt[12]{2}} E
+\lto^{\times\sqrt[12]{2}} F
+\lto^{\times\sqrt[12]{2}} F\sharp
+\lto^{\times\sqrt[12]{2}} G
+\lto^{\times\sqrt[12]{2}} G\sharp
+\]
+
+What this means is, if we again denote the frequency of $C$ as $f$:
+\[
+\text{Frequency of } G =\left(2^{\frac{1}{12}}\right)^7f=2^\frac{7}{12}f\approx 1.498f
+\]
+
+where the 7th power comes from the fact that there are 7 jumps between C and G (700 cents!), so you have to multiply $2^{\frac{1}{12}}$ by itself 7 times to go from the frequency of one note to the other.
+
+\begin{question} Repeat the process we just did with G but for all other non-sharp notes, always comparing against C. Contrast the resulting values with the ratios in the previous scale.\\
+\begin{center}
+\renewcommand{\arraystretch}{3}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|}\hline
+Note: & C & \hspace{0.15in} D \hspace{0.15in} & \hspace{0.15in} E \hspace{0.15in} & \hspace{0.15in} F \hspace{0.15in} & \hspace{0.15in} G \hspace{0.15in} & \hspace{0.15in} A \hspace{0.15in} & \hspace{0.15in} B \hspace{0.15in} & \hspace{0.15in} C \hspace{0.15in}    \\\hline
+\footnotesize{Multiply $f$ by:} & $2^{\frac{0}{12}}=1$ & & & & $2^{\frac{7}{12}} \approx 1.498$ & & &  \\\hline
+\footnotesize{Frequency:} & $f$ & & & & $1.498f$ & & &  \\\hline
+\end{tabular}
+\end{center}
+\end{question} 
+
+Notice that because all the jumps or ratios between notes on the equal temperament scale are equal, it doesn't matter what we use as our starting frequency, we will always get the same set of notes (and their octaves, of course). This is the great advantage of this system, but it it less intuitive than the Pythagorean, since $\sqrt[12]{2}$ is an irrational number and it does not relate with harmonics as did the $\frac{3}{2}$ ratio.
+
+
+
+\subsection{Useful Links}
+
+\link[Why It's Impossible to Tune a Piano by Minute Physics - https://youtu.be/1Hqm0dYKUx4]{https://youtu.be/1Hqm0dYKUx4}
+\link[Why are There Twelve Notes in Music by Steven Jacks - https://youtu.be/IT9CPoe5LnM]{https://youtu.be/IT9CPoe5LnM}
+
+
+\subsection{What to Submit}
+Record a video explaining what you did and what you learned on this project. Be sure to show your work!
+
+
+
+
+
+
+\end{document}

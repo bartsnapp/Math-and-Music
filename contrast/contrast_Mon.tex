@@ -1,0 +1,216 @@
+\documentclass[12pt,noauthor,nooutcomes,handout,hints]{ximera}
+
+\author{}
+
+\input{../preamble.tex}
+
+
+
+
+\title{Music is about contrast}
+
+\begin{document}
+\begin{abstract}
+  To maintain a song’s “form” we need to maintain cent difference. At the same time, we introduce sharps.
+\end{abstract}
+\maketitle
+
+
+
+Let's see a section of a piano again.
+
+\staffBack
+
+
+
+
+Different instruments, including voices, have different ranges. This means that some pieces of music might be impossible for some instruments in a given range. For example, consider these two recordings of \textit{Love fool} by the The Cardigans:
+\begin{itemize}
+\item \link[\textit{The Cardigans}, Love fool]{https://youtu.be/NI6aOFI7hms}
+\item \link[\textit{New Found Glories}, Love fool]{https://youtu.be/WlWq-4CMkMw}
+\end{itemize}
+When \textit{The Cardigans} perform \textit{Love fool}, the singer starts on a $G_5$. However, when the \textit{New Found Glories} perform this piece, the singer starts on an $E_5$. This is because the vocal ranges of the two singers are different. 
+
+
+
+%%Chapter 6 from Math and Music covers how the notes are isomorphic to $\mathbb{Z}_12$. 
+%%An activity (or several) on this would be good.
+
+
+
+
+\begin{question} Consider the first four measures of \textit{Twinkle Twinkle, Little Star} again:
+
+\begin{music}
+\instrumentnumber{1}            % number of instruments
+\setstaffs1{1}              % number of lines per instrument
+\generalmeter{\meterfrac{4}{4}}   % time stamp. meterC is 4/4, allabreve is 2/2 or cut time.
+\generalsignature{0}            % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\startextract
+% bar 1
+  \Notes \Uptext{\metron{\qu}{100}}  \ql j \ql j  \ql n \ql n \en 
+\bar % bar 2
+  \Notes  \ql o \ql o \hl n  \en 
+\bar % bar 3
+  \Notes  \ql m \ql m \ql l \ql l  \en 
+\bar % bar 4
+  \Notes  \ql k \ql k \hl j  \en 
+\endextract
+\end{music}
+
+\begin{enumerate}
+    \item What's the difference in cents between each pair of consecutive notes? 
+
+
+
+\begin{instructorNotes}
+Students are likely to make mistakes when counting cents due to only considering white keys. Remind them that the 100 cent difference between adjacent keys includes black keys. Thus, for example, $A_3$ and $B_3$ are 200 cents apart, since there's a black key in between them.
+
+Answer:
+
+\begin{music}
+\instrumentnumber{1}            % number of instruments
+\setstaffs1{1}              % number of lines per instrument
+\generalmeter{\meterfrac{4}{4}}   % time stamp. meterC is 4/4, allabreve is 2/2 or cut time.
+\generalsignature{0}            % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\startextract
+% bar 1
+  \Notes \Uptext{\metron{\qu}{100}}  \ql j \ql j  \ql n \ql n \en 
+\bar % bar 2
+  \Notes  \ql o \ql o \hl n  \en 
+\bar % bar 3
+  \Notes  \ql m \ql m \ql l \ql l  \en 
+\bar % bar 4
+  \Notes  \ql k \ql k \hl j  \en 
+\endextract
+\end{music}
+     \hspace{90pt} 0 \hspace{5pt} 700 \hspace{2pt} 0 \hspace{5pt} 200 \hspace{3pt} 0 \hspace{2pt} 200 \hspace{1pt} 200 \hspace{2pt} 0 \hspace{1pt} 100 \hspace{2pt} 0 \hspace{3pt} 200 \hspace{4pt} 0 \hspace{3pt} 200
+\end{instructorNotes}
+
+
+
+The arrangement of \textit{Twinkle Twinkle, Little Star} above starts on $C_5$. Suppose we wish to start this song on $A_4$.
+This is called \textbf{transposing} the music.
+
+\textit{Mathemusical Mac} suggests that the following is correct: 
+
+\begin{music}
+\instrumentnumber{1}            % number of instruments
+\setstaffs1{1}              % number of lines per instrument
+\generalmeter{\meterfrac{4}{4}}   % time stamp. meterC is 4/4, allabreve is 2/2 or cut time.
+\generalsignature{0}            % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\startextract
+% bar 1
+  \Notes \Uptext{\metron{\qu}{100}}  \ql h \ql h  \ql l \ql l \en 
+\bar % bar 2
+  \Notes  \ql m \ql m \hl l  \en 
+\bar % bar 3
+  \Notes  \ql k \ql k \ql j \ql j  \en 
+\bar % bar 4
+  \Notes  \ql i \ql i \hl h  \en 
+\endextract
+\end{music}
+
+     \item What's the difference in cents between each pair of adjacent notes in \textit{Mathemusical Mac}'s staff?
+ 
+ \answerspace
+ 
+ \item Encode Mac's arrangement on the online sequencer. Compare it with the encoding of the original piece you made in a previous task.
+ 
+ \answerspace
+ 
+ \item Is \textit{Mathemusical Mac} correct? Remember, 
+ \begin{center}
+ Music is about contrast.
+ \end{center}
+ Here, the ``contrast'' is the change in pitch in cents from one note to the next. 
+
+\answerspace
+
+
+ 
+ \begin{instructorNotes}
+Answer: Mathemusical Mac is not correct! The next question explains how to do it the right way. 
+\end{instructorNotes}
+\end{enumerate}
+\end{question}
+
+
+
+%Notice that $E\sharp$ is the same as $F$. For the same reason, $B\sharp$ is the same as $C$.
+%(This is a result of the way the piano was designed hundreds of years ago. We'll explain a little of this history later.)
+
+
+\begin{question}
+To make any note $100$ cents higher, we put a ``sharp'' ($\sharp$ symbol) next to it. For example, the first black key on the keyboard image below is $C\sharp$, since it follows the white key $C$. On the staff, the note is drawn on the same line as $C$, but it is preceded by a $\sharp$.
+
+\sharpStaff
+\vspace{-5pt}
+\[
+\qquad \qquad C\sharp \hspace{20pt} D\sharp \hspace{40pt}  F\sharp \hspace{20pt} G\sharp \hspace{20pt} A\sharp
+\]
+
+Let's now work on that \textit{Twinkle Twinkle, Little Star} arrangement so that it starts on $A_4$. We will need to use the black keys. 
+
+\begin{enumerate}
+\item Consider the cents differences that you calculated on question 1a above and write the sequence of notes that maintains those differences but starting with $A_4$. For example,
+the cents difference between the first and the second notes is 0 (they are the same
+note), so we know that the two first notes on the new arrangement will be $A_4$, $A_4$.
+Now you continue the sequence. \begin{hint}You will want to be looking at the piano diagram. Some of your notes will now require the symbol ``$\sharp$''!
+\end{hint}
+
+$A_4$, $A_4$,
+
+\begin{instructorNotes}
+Answer: $A_4$, $A_4$, $E_5$, $E_5$, $F_5^\sharp$, $F_5^\sharp$, $E_5$, $D_5$, $D_5$, $C_5^\sharp$, $C_5^\sharp$, $B_4$, $B_4$, $A_4$
+
+The difference between the original note and the transposed note is always 300 cents since we obtained the first note $A_4$ by lowering $C_5$ by 300 cents, then each following note was obtained by using the same difference in cents as before.
+
+To transpose a song, all we need to do is increase or decrease each note by the same number of cents!
+
+This process can get tedious. For parts (b) and (c), encourage students to do this on the online sequencer. It makes it easier because each row represents a 100 cents difference (unlike the staff, where the different between rows is sometimes 100 and other times 200). If a student struggles too much, you can let them use the online sequencer even with part (a). Just make sure they understand why it helps. 
+\end{instructorNotes}
+
+
+\answerspace
+
+\answerspace
+
+\item Let's transpose the song again, but now let's start it on $B_4$. List out the notes as we did above.
+\begin{hint} This is faster to do using the online sequencer!
+\end{hint}
+
+$B_4$, $B_4$, 
+
+\answerspace
+
+\begin{instructorNotes}
+Answer: $B_4, B_4, F_5\sharp, F_5\sharp, G_5\sharp, G_5\sharp, F_5\sharp, E_5, E_5, D_5\sharp, D_5\sharp, C_5\sharp, C_5\sharp, B_4$
+\end{instructorNotes}
+
+\item Do it again starting on $E_5$.
+ 
+ $E_5$, $E_5$, 
+
+
+\answerspace
+
+\begin{instructorNotes}
+Answer: $E_5, E_5, B_5, B_5, C_6\sharp, C_6\sharp, B_5, A_5, A_5, G_5\sharp, G_5\sharp, F_5\sharp, F_5\sharp, E_5$
+\end{instructorNotes}
+
+\end{enumerate}
+\end{question}
+
+
+
+\begin{instructorNotes}
+Students learned about octaves before, but they only knew 7 notes then. In the next question, the goal is that they realize that they now know 12 different notes and that, because of octaves, one could argue that "there are basically only 12 notes" in music. This is specially true if we look at the piano: the same set of 12 keys repeats over and over: it is the same notes at different octaves.
+
+Point out, however, that there are an infinite number of frequencies that a pitch could be in.
+\end{instructorNotes}
+
+
+
+
+\end{document}

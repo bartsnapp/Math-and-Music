@@ -1,0 +1,116 @@
+\documentclass[12pt,noauthor,nooutcomes,hints, handout]{ximera}
+
+\author{Snapp and Delgado and Zimmerman}
+
+\input{../preamble.tex}
+
+
+
+\title{Generators and circles}
+
+\begin{document}
+\begin{abstract}
+  Certain steps will take us to all notes and others won't.
+\end{abstract}
+\maketitle
+
+
+
+
+
+Musicians and mathematicians wish to master their art; in this quest sometimes, musicians play a little game where they go on a ``tour of notes'' with their instrument by successively playing a sequence of notes always skipping a given number of cents. 
+
+For example: Maybe, the musician will start on $A_4$, and play a note $200$ cents higher to get a sequence of notes:
+\[
+A_4 \lto^{200} B_4 \lto^{200} C_5\sharp \lto^{200} D_5\sharp \lto^{200} F_5 \lto^{200} G_5 \lto^{200} A_5
+\]
+However, the range of the instrument is limited, so instead of continuing to play higher and higher pitches, the musician thinks in terms of octaves. In other words, while doing these tours, they forget about the subscripts for a moment and just focus on the letters of each pitch. So the example tour above becomes:
+
+\[
+A \lto^{200} B \lto^{200} C\sharp \lto^{200} D\sharp \lto^{200} F \lto^{200} G \lto^{200} A
+\]
+
+After all, remember we hear $A_4$ and $A_5$ as the same note.
+
+
+When working with these tours, it is useful to have the following image in mind. The notes, in piano order, including the black keys, are drawn in a circle to convey the idea that we think about octaves, so when we reach $G\sharp$, we go back to $A$.
+
+\begin{center}
+    \newcommand*{\mynotes}{$A$,$A\sharp$,$B$,$C$,$C\sharp$,$D$,$D\sharp$,$E$,$F$,$F\sharp$,$G$,$G\sharp$}
+\circleTour{\mynotes}{100}
+\end{center}
+
+
+\begin{question}
+As we've seen before, if the step size is $100$ cents we visit all the notes on the keyboard in order. Musicians are interested in tours that hit all notes, like the one above. 
+
+\begin{enumerate}
+    \item Draw a tour with a step size of 200 cents. Does it hit all the notes?
+    
+\begin{center}
+    \newcommand*{\mynotes}{$A$,$A\sharp$,$B$,$C$,$C\sharp$,$D$,$D\sharp$,$E$,$F$,$F\sharp$,$G$,$G\sharp$}
+\circleTour{\mynotes}{100}
+\end{center}
+
+\item Which step sizes will hit all the notes?
+\begin{hint} Check back on your work on stars! However, be aware of the differences between stars and tours. With stars, once you returned to the starting dot, you started again on another unused dot. With tours, once you return to the starting note, you continue looping on the same  tour.
+\end{hint}
+
+\item Draw a tour, other than the simple 100 cents one, that hits all the notes.
+
+\begin{center}
+    \newcommand*{\mynotes}{$A$,$A\sharp$,$B$,$C$,$C\sharp$,$D$,$D\sharp$,$E$,$F$,$F\sharp$,$G$,$G\sharp$}
+\circleTour{\mynotes}{}
+\end{center}
+
+\end{enumerate}
+\end{question}
+
+\begin{question} Musicians are not only interested in hitting all notes. Remember that we are interested in these tours to actually play them. Hence, musicians also care about knowing which notes \textbf{sound good}  when played together. This helps them create pleasant melodies and chords.
+
+Play a 100 cents step size tour on the online sequencer. On a separate tab, play a 700 cents tour. Which one sounds better? 
+
+\end{question}
+
+
+\begin{question}
+The 700 cent circle above appeared all over the place in classical music.
+Consider the following selection from \emph{Cantata 51} by J.S.\ Bach.
+
+
+\centerline{\includegraphics[width=.9\textwidth]{generators/Bach.png}}
+
+You can listen to this here:
+
+\begin{center}
+\url{https://go.osu.edu/cantata}
+\end{center}
+
+\begin{enumerate}
+    \item Write down the first note in each of the first $5$ triplets. (In other words, what are the 1st, $4$th, $7$th, $10$th, and $13$th notes in this selection?)
+
+\answerspace
+
+
+    \item Compare this list to the $700$ cent circle from above. What do you notice?
+\end{enumerate}
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

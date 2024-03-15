@@ -1,0 +1,532 @@
+\documentclass[12pt,noauthor,nooutcomes, instructornotes]{ximera}
+
+\author{}
+
+\input{../preamble.tex}
+
+
+
+\title{Superposition principle}
+
+\begin{document}
+\begin{abstract}
+    We explain how waves interact and form beats.
+\end{abstract}
+\maketitle
+
+
+%See: \url{https://newt.phys.unsw.edu.au/jw/graphics/interaction.GIF} this is a picture that is essentially the answer to how waves combine. The picture is from: \url{https://newt.phys.unsw.edu.au/jw/strings.html}
+
+
+Before you learned about some characteristics of waves. Now we are going to see them in action.
+
+ %   \item Arrange the rope on the floor, lying on a nice straight line. Take one end of the rope and wiggle it just once to start a wave. Write down your observations.
+
+
+
+
+
+
+ %   \item Two campers from your group should stand in front of each other holding the rope firmly and tense. Then one of the campers should start a wave, while the other person continues to hold the other end as firmly as possible. Write down your observations.
+%  \item Again with two campers holding the rope tense in the air, have both campers start a wave at the same time. Write down your observations.
+
+
+ %   \item Now observe the demonstration of one or more waves bouncing back on a spring. Write down your observations.
+    
+
+
+
+\begin{instructorNotes}
+The next question is about the superposition principle. Explain the following image and make it clear that when waves combine, their heights at any given point add up.
+\end{instructorNotes}
+
+\begin{question} Imagine one string that is fixed on the two ends. Two people pluck the string upwards, each on one end of the string. As a result, we have one pulse traveling to the right and another one traveling to the left. When they meet, the two pulses cannot continue separately, since there's only one rope (and it cannot be in two places at once), so they combine. Interestingly, the two impulses continue, meaning there's still a pulse going right, which will momentarily combine with the other pulse, and then continue its way towards the right (and the same thing goes for the pulse going left).
+
+\begin{center}
+\begin{tikzpicture}
+  \draw[ultra thick,->] (.25,.8) -- (.75,.8);
+  \draw[ultra thick,->] (4.75,.8) -- (4.25,.8);
+\collideWave{0}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[ultra thick,->] (1.25,.8) -- (1.75,.8);
+  \draw[ultra thick,->] (3.75,.8) -- (3.25,.8);
+  \collideWave{1}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \bigWave{2}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[ultra thick,<-] (1.25,.8) -- (1.75,.8);
+  \draw[ultra thick,<-] (3.75,.8) -- (3.25,.8);
+  \collideWave{1}
+\end{tikzpicture}
+
+\begin{tikzpicture}
+  \draw[ultra thick,<-] (.25,.8) -- (.75,.8);
+  \draw[ultra thick,<-] (4.75,.8) -- (4.25,.8);
+\collideWave{0}
+\end{tikzpicture}
+\end{center}
+
+
+
+
+
+
+
+
+
+While the two pulses are meeting, they add up with each other. If you think of a plot, this means that the height (or $y$ coordinate) of both waves add up to give the height of the resulting plot.
+%\begin{center}
+%    \begin{tikzpicture}
+%        \begin{axis}[
+%            xmin=-.5,xmax=14,ymin=-0.1,ymax=1.2,
+%                axis lines=center,
+%                ymajorgrids=true,
+%                xmajorgrids=true,
+%                xtick={-0.0,1.0,...,14.0},
+%                ytick={-0.0,0.25,...,1.0},
+%                width=.9\textwidth,
+%                height=2in,
+%                clip=false,
+%              ]       
+%              \addplot [ultra thick, black,smooth, domain=(0:6)] {sin(deg(x*pi/6))};
+%            \addplot [ultra thick, black,smooth, domain=(8:14)] {sin(deg((x-8)*pi/6))};
+%            \addplot [ultra thick, black,smooth, domain=(6:8)] {0};
+%            \end{axis}
+%    \end{tikzpicture}
+%\end{center}
+\newpage
+\begin{enumerate}
+    \item Plot the combined wave when the two pulses overlap completely (the two crests are at $x=7$).
+    \begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-.5,xmax=14,ymin=-0.1,ymax=2.2,
+                axis lines=center,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                xtick={-0.0,1.0,...,14.0},
+                ytick={-0.0,0.25,...,2.0},
+                width=.9\textwidth,
+                height=3in,
+                clip=false,
+              ]   
+             \addplot [line width=3pt, white!70!black,smooth, domain=(0:4)] {0};
+             \addplot [line width=3pt, white!70!black,smooth, domain=(10:14)] {0};
+             \addplot [dashed,blue,smooth, domain=(0:4)] {0};
+              \addplot [dashed,blue,smooth, domain=(10:14)] {0};
+              \addplot [line width=3pt, white!70!black,smooth, domain=(4:10)] {sin(deg((x-4)*pi/6))};
+              \addplot [dashed, blue,smooth, domain=(4:10)] {sin(deg((x-4)*pi/6))};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\begin{instructorNotes}
+Answer:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-.5,xmax=14,ymin=-0.1,ymax=2.2,
+                axis lines=center,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                xtick={-0.0,1.0,...,14.0},
+                ytick={-0.0,0.25,...,2.0},
+                width=.9\textwidth,
+                height=3in,
+                clip=false,
+              ]      
+               \addplot [ultra thick, red,smooth, domain=(4:10)] {2*sin(deg((x-4)*3.14159/6))};
+            \addplot [ultra thick, red,smooth, domain=(0:4)] {0};
+            \addplot [ultra thick, red,smooth, domain=(10:14)] {0};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\end{instructorNotes}
+
+\item Plot the combined wave when both pulses have moved three units in their direction (from their starting positions).
+   \begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-.5,xmax=14,ymin=-0.1,ymax=2.2,
+                axis lines=center,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                xtick={-0.0,1.0,...,14.0},
+                ytick={-0.0,0.25,...,2.0},
+                width=.9\textwidth,
+                height=3in,
+                clip=false,
+              ]    
+              \addplot [dashed,black,smooth, domain=(3:9)] {sin(deg((x-3)*pi/6))};
+        
+              \addplot [dashed, black,smooth, domain=(5:11)] {sin(deg((x-5)*pi/6))};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\begin{instructorNotes}
+Answer:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-.5,xmax=15,ymin=-0.1,ymax=2.2,
+                axis lines=center,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                xtick={-0.0,1.0,...,14.0},
+                ytick={-0.0,0.25,...,2.0},
+                width=.9\textwidth,
+                height=3in,
+                clip=false,
+              ]      
+               \addplot [ultra thick, red,smooth, domain=(3:5)] {sin(deg((x-3)*3.14159/6))};
+               \addplot [dashed,red,smooth, domain=(5:9)] {sin(deg((x-3)*3.14159/6))};
+               \addplot [ultra thick, red,smooth, domain=(9:11)] {sin(deg((x-5)*3.14159/6))};
+              \addplot [dashed, red,smooth, domain=(5:9)] {sin(deg((x-5)*3.14159/6))};
+               \addplot [ultra thick, red,smooth, domain=(5:9)] {sin(deg((x-5)*pi/6))+sin(deg((x-3)*3.14159/6))};
+            \addplot [ultra thick, red,smooth, domain=(0:3)] {0};
+            \addplot [ultra thick, red,smooth, domain=(11:14)] {0};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\end{instructorNotes}
+\end{enumerate}  
+\end{question}
+
+\begin{instructorNotes}
+
+In the following question, students will continue to analyze how waves combine (superposition principle), now considering full waves. They will work with examples of constructing and destructing waves.
+
+Point out that even though we are thinking of a string scenario, this applies for sound waves in the air too. For example, if two instruments are playing, when the sound waves they produce meet, they will also combine according to the superposition principle.
+
+\end{instructorNotes}
+
+\begin{question} Now imagine the two waves are full waves, not just crests.
+\begin{enumerate}
+    \item As they are traveling, there will be a point when the two waves completely overlap, matching each other, as in the plot below, where one of the waves is depicted as a thick gray line, while the other is a thinner black dashed line. Draw on the same plot the resulting combined wave.
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=12,ymin=-2.2,ymax=2.2,
+                axis lines=center,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                xtick={-0.0,1.0,...,11.0},  
+                width=.9\textwidth,
+                height=4in,
+            clip=false,
+              ]       
+              \addplot [line width=7pt,white!70!black,smooth, domain=(0:12)] {sin(deg(x*pi/4))};
+              \addplot [ultra thick,dashed, black,smooth, domain=(0:12)] {sin(deg(x*pi/4))};
+
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\begin{instructorNotes}
+Answer:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=12,ymin=-2.2,ymax=2.2,
+                axis lines=center,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                xtick={-0.0,1.0,...,11.0},  
+                width=.9\textwidth,
+                height=4in,
+            clip=false,
+              ]       
+              \addplot [line width=7pt,white!70!black,smooth, domain=(0:12)] {sin(deg(x*pi/4))};
+              \addplot [ultra thick,dashed, black,smooth, domain=(0:12)] {sin(deg(x*pi/4))};
+\addplot [ultra thick,red,smooth, domain=(0:12)] {2*sin(deg(x*pi/4))};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\end{instructorNotes}
+
+\newpage
+\item There will also be a point when the two waves are completely opposite, meaning the crests of one of them will align to the valleys of the other and vice versa, as shown in the plot below. Draw the resulting combined wave.
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=12,ymin=-2.2,ymax=2.2,
+                axis lines=center,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                xtick={-0.0,1.0,...,11.0},  
+                width=.9\textwidth,
+                height=4in,
+            clip=false,
+              ]       
+              \addplot [line width=7pt,white!70!black,smooth, domain=(0:12)] {sin(deg(x*pi/4))};
+              \addplot [ultra thick,dashed, black,smooth, domain=(0:12)] {sin(deg(-x*pi/4))};
+
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\begin{itemize}
+\item What do you think this resulting wave sounds like?
+
+\answerspace
+
+
+
+\item Remember what you learned on the waves activity. Explain why your previous answer makes sense when you think about what waves are in terms of pressure.
+
+\answerspace
+
+
+
+
+\item Checkout how ``noise-canceling headphones'' work:
+\begin{center}
+\url{https://youtu.be/F7D_pnaexG0}
+\end{center}
+\end{itemize}
+
+\newpage
+\item As the waves are traveling, they will meet and combine in other ways too. Draw the resulting wave from the following plot.
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=12,ymin=-2.2,ymax=2.2,
+                axis lines=center,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                xtick={-0.0,1.0,...,11.0},  
+                width=.9\textwidth,
+                height=4in,
+            clip=false,
+              ]       
+              \addplot [line width=7pt,white!70!black,smooth, domain=(0:12)] {sin(deg(x*pi/4))};
+              \addplot [ultra thick,dashed, black,smooth, domain=(0:12)] {sin(deg((x-2))*pi/4)};
+
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\end{enumerate}
+   
+\end{question}
+
+\begin{instructorNotes}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=12,ymin=-2.2,ymax=2.2,
+                axis lines=center,
+                ymajorgrids=true,
+                xmajorgrids=true,
+                xtick={-0.0,1.0,...,11.0},  
+                width=.9\textwidth,
+                height=4in,
+            clip=false,
+              ]       
+              \addplot [line width=7pt,white!70!black,smooth, domain=(0:12)] {sin(deg(x*pi/4))};
+              \addplot [ultra thick,dashed, black,smooth, domain=(0:12)] {sin(deg((x-2))*pi/4)};
+\addplot [ultra thick,red,smooth, domain=(0:12)] {sin(deg((x-2))*pi/4)+sin(deg(x*pi/4))};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+\end{instructorNotes}
+
+
+\begin{instructorNotes}
+The next activity is hard to explain in writing, but we will demonstrate it. The final goal is for them to understand how standing waves form.
+
+The following diagrams illustrate the activity at start and after one step.
+
+\includegraphics[width=0.95\textwidth]{superposition/step0.png}
+
+The three plots must be aligned like this at start. The students should draw a flat line.
+
+\includegraphics[width=0.95\textwidth]{superposition/step1.png}
+
+At step 1, both waves are shifted one mark of the grid in the corresponding direction. The resulting wave is shown and labeled as "1."
+
+When they are done, motivate them to use their imagination to picture and describe how the wave is moving. Then show the following animation to aid their imagination.
+
+\url{https://en.wikipedia.org/wiki/Superposition_principle#/media/File:Standing_wave_2.gif}
+\end{instructorNotes}
+
+
+\begin{question} In question 3 we figured out how two waves will combine at three specific points in their journey. We now want to get the full picture of a standing wave.
+
+You will be working in groups. You will have two transparent plots with waves. Mark one with a right-pointing arrow - this will be the wave traveling to the right. Mark the other one with a left-pointing arrow. To start, overlap the two waves and the Cartesian plane, aligning the center of the right-moving wave, the beginning of the left moving wave, and the origin.
+
+A person in your group will be in charge of moving the waves. At each step, both plots should be moved one mark in their corresponding direction. At each step, someone should also draw the resulting wave on the plane. There will be one wave drawn for each step, so you should end up with four curves. Label them with the corresponding step.
+
+\end{question}
+
+
+\begin{question} Now imagine we have a pulse traveling to the right and we want to send a pulse in the opposite direction so that the middle point on the rope never moves. In other words, we want that, as the right pulse passes through that middle point and combines with the left pulse, they cancel out, so that the height of the combined wave at this point is always 0.
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-.5,xmax=10.5,ymin=-0.1,ymax=1.2,
+                axis lines=center,
+                xtick={-0.0,1.0,...,10.0},
+                width=.9\textwidth,
+                height=2in,
+                clip=false,
+              ]       
+              \addplot [ultra thick, black,smooth, domain=(2:5)] {sin(deg((x-2)*pi/4))};
+              \draw[fill=black] (55.,10.) circle (3pt);
+             \addplot [ultra thick, black,smooth, domain=(0:2)] {0};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+Look at the combined waves that you drew on the previous question. \textbf{What sort of pulse do we have to send moving towards the left so that what we described above happens?}
+
+\answerspace
+
+\begin{instructorNotes}
+
+Answer:
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-.5,xmax=10.5,ymin=-1.2,ymax=1.2,
+                axis lines=center,
+                xtick={-0.0,1.0,...,10.0},
+                width=.9\textwidth,
+                height=3in,
+                clip=false,
+              ]       
+              \addplot [ultra thick, black,smooth, domain=(2:5)] {sin(deg((x-2)*3.14159/4))};
+              \draw[fill=black] (55.,120.) circle (3pt);
+            \addplot [ultra thick, black,smooth, domain=(0:2)] {0};
+              \addplot [ultra thick,dashed, black,smooth, domain=(5:8)] {sin(deg(x*3.14159/4))};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+\end{instructorNotes}
+\end{question}
+
+When we have a string fixed on both ends and pluck it on one side, a wave forms that is traveling on one direction. When it reaches an end, it cannot continue its path, so it bounces back. Remember that energy is not destroyed, so the wave cannot simply disappear. However, as it bounces back, the wave is inverted. This is similar to what we just discussed: the wave has to cancel out on the fixed end, since that point cannot move.
+\begin{center}
+\setlength\tabcolsep{5ex}
+\begin{tabular}{cc}
+\textbf{Wave moving left-to-right} & \textbf{Return wave, inverted, moving right-to-left} \\
+\begin{tikzpicture} 
+  \transverseWave{4}
+\end{tikzpicture}
+&
+\begin{tikzpicture}
+  \retTransverseWave{4}
+\end{tikzpicture}\\
+\end{tabular}
+\end{center}
+Now we have a full wave traveling to the right. When it reaches the end, it bounces back and interferes with the original wave traveling to the right. When this bounced wave reaches the left end, it too will bounce. So we have a wave traveling right and a wave traveling left in a continuous fashion. Remember, however, that in reality you cannot have the two waves separately on the same rope, so they combine to form a standing wave, as we saw before. 
+
+
+
+
+\begin{question} To finish up, now we want to understand what happens if we play two notes at the same time. To do this, we are going to deviate from our previous idea of waves on strings and think about sound waves more generally.
+
+Remember that different notes have different frequencies. If we play two notes at the same time, then, in our ears, two waves with different frequencies will meet. 
+
+\begin{instructorNotes}
+In this question, Students should notice that the two waves sometimes are in phase and other times are out of phase.
+
+After they draw their attempt at the combined wave, show a plot like this:
+
+\includegraphics[width=\textwidth]{superposition/beats.jpg}
+
+%If possible, demonstrate beats with a frequency machine. Otherwise, play this video (from 2:45 to 3:45):
+%\url{https://youtu.be/mIFEXXKMCMo?t=165}
+
+%After this, students can try more plots using the Wolfram Player tool called Beat Frequency of Sound, which will be ready to use on the camp computers. See \url{https://demonstrations.wolfram.com/BeatFrequencyOfSoundWaves/} for reference.
+
+%https://www.acs.psu.edu/drussell/Demos/superposition/beats.gif
+\end{instructorNotes}
+
+
+\begin{enumerate}
+    \item Imagine that we are hearing the following two waves. Just like in the string, they will combine. Sketch the resulting wave.
+%\begin{center}
+%\includegraphics[width=0.9\textwidth]{superposition/Image183.jpg}
+%\end{center}
+\begin{center}
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=10.5,ymin=-1.5,ymax=1.5,
+                axis lines=center,
+                %ticks=none,
+                xtick={0,.5,...,10},
+                ymajorticks=false,
+                xmajorgrids=true,
+                xticklabels={},
+                width=.9\textwidth,
+                height=3in,
+                %xlabel=Meters, ylabel=Pressure,
+            clip=false,
+            axis on top,
+              ]       
+              \addplot [ultra thick, gray,smooth, samples=100,domain=(0:10)] {sin(pi*deg(x))};
+            \end{axis}
+    \end{tikzpicture}
+    
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=10.5,ymin=-1.5,ymax=1.5,
+                axis lines=center,
+                %ticks=none,
+                xtick={0,.5,...,10},
+                ymajorticks=false,
+                xmajorgrids=true,
+                xticklabels={},
+                width=.9\textwidth,
+                height=3in,
+                %xlabel=Meters, ylabel=Pressure,
+            clip=false,
+            axis on top,
+              ]       
+              \addplot [ultra thick, gray,smooth, samples=100,domain=(0:10)] {sin(.9*pi*deg(x))};
+            \end{axis}
+    \end{tikzpicture}
+    
+    \begin{tikzpicture}
+        \begin{axis}[
+                xmin=-.5,xmax=10.5,ymin=-1.5,ymax=1.5,
+                axis lines=center,
+                %ticks=none,
+                xtick={0,.5,...,10},
+                ymajorticks=false,
+                xmajorgrids=true,
+                xticklabels={},
+                width=.9\textwidth,
+                height=3in,
+                %xlabel=Meters, ylabel=Pressure,
+            clip=false,
+            axis on top,
+              ]       
+              %\addplot [ultra thick, gray,smooth, samples=100,domain=(0:10)] {sin(.9*pi*deg(x))};
+            \end{axis}
+    \end{tikzpicture}
+\end{center}
+
+
+
+\item See it in action:
+
+\begin{center}
+    \url{https://www.desmos.com/calculator/vaflkdbmd2}
+\end{center}
+
+
+
+%\item Open Wolfram Player on the computer and open the file called Beat Frequency of Sound Waves. Adjust the ``difference in frequencies,'' making sure to try $2$, $3$, and $4$. For each number, click ``play tones'' and try to notice the beat pattern.
+\end{enumerate}
+\end{question}
+
+
+
+\end{document}

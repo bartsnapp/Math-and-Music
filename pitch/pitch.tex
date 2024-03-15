@@ -1,0 +1,141 @@
+\documentclass[12pt,noauthor,nooutcomes,instructornotes]{ximera}%% SEE: https://www.overleaf.com/project/626c378b4e3e27903576f685
+\author{Bart Snapp}
+
+\input{../preamble.tex}
+
+
+
+\title{Pitch}
+
+\begin{document}
+\begin{abstract}
+  Pitch is an element of music. 
+\end{abstract}
+\maketitle
+
+
+Music can be described as the interaction of rhythm and pitch. But what is pitch? 
+Check out this video, for examples of high pitch and low pitch. 
+\begin{center}
+\url{https://youtu.be/yMLTF_0PAQw}
+\end{center}
+
+
+
+
+
+
+\begin{question} %% Do music -- this is math and music after all.
+Before we worked with some examples of written music for drums. Now we are going to work with the piano. 
+Here, depending on the position (height) of the note on the staff, it represents a different pitch. The higher the note on the staff, the higher the pitch. Notes can be written on the lines or on the blank space between them. Pitches are named using capital letters $A$ through $G$. The diagram below shows the white piano keys (for now, we will ignore the black keys) corresponding to these pitches as well as how we write the notes using sheet music:
+
+\ttPiano
+
+
+
+
+The following staff shows the first four measures of \textit{Twinkle Twinkle, Little Star}:
+
+\begin{music}
+\instrumentnumber{1}            % number of instruments
+\setstaffs1{1}              % number of lines per instrument
+
+\generalmeter{\meterfrac{4}{4}}   % time stamp. meterC is 4/4, allabreve is 2/2 or cut time.
+\generalsignature{0}            % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+
+\startextract
+% bar 1
+  \Notes \Uptext{\metron{\qu}{100}} \ql j \ql j  \ql n \ql n \en 
+\bar % bar 2
+  \Notes  \ql o \ql o \hl n  \en 
+\bar % bar 3
+  \Notes  \ql m \ql m \ql l \ql l  \en 
+\bar % bar 4
+  \Notes  \ql k \ql k \hl j  \en 
+\endextract
+\end{music}
+
+ \begin{enumerate}
+     \item Identify the names of these notes. Write them on the staff.
+  \item What's the highest pitch above? What's the lowest?
+\end{enumerate}
+\end{question}
+
+
+%%  https://onlinesequencer.net/2742845
+
+
+\begin{question}
+ Use an online sequencer to encode the music passage above. %https://onlinesequencer.net/2809851
+  \begin{center}
+    \url{https://onlinesequencer.net/}
+  \end{center}
+  You will notice on the left bar that some rows are white and others are black - these represent the keys on the piano. The piano section that we are looking at in the image above starts at what the website labels as $B_4$ and continues upward.
+\end{question}
+
+\begin{instructorNotes}
+
+As a class, we will encode the first measure of \textit{Twinkle Twinkle, Little Star} on the online encoder and have students work on completing it on their own.
+
+At this point we don't yet want to get into octaves, so we will call the notes A, B, C, etc. plainly, without subindexes. However, the online sequencer does have numbers, so we will just tell them that the first note on the diagram on this page corresponds to $B_4$ on the website. Point out that the first column of the online sequencer (that has the notes' names) resembles the piano keys (looked as if tilting their head to the left). 
+
+Solution:
+
+\includegraphics[width=\textwidth]{pitch/twinkle.png}
+
+\url{https://onlinesequencer.net/2809851}
+\end{instructorNotes}
+
+\begin{question}
+While working in the online seqeuencer, if you select the ``arrow'' (selection) tool, you can select and move all of your notes at once. 
+\begin{enumerate}
+\item If you move all the notes, so that \textit{Twinkle Twinkle, Little Star} starts on an $E_3$, does the sequencer still play \textit{Twinkle Twinkle, Little Star}?
+
+\answerlines
+
+\item If you move your encoding of \textit{Twinkle Twinkle, Little Star} so that it starts on \textit{any} other note, will it \textbf{always} play \textit{Twinkle Twinkle, Little Star}? Explain your reasoning.
+
+\answerlines
+
+\answerlines
+
+
+\end{enumerate}
+\end{question}
+
+
+\begin{question}
+Someone once told me, 
+\begin{center}
+Music is about contrast.
+\end{center}
+Suppose that the contrast between the $2$nd and $3$rd of \textit{Twinkle Twinkle, Little Star} is quantified by $x$. Explain why shifting the encoding doesn't change this value of $x$.
+
+\answerlines
+
+\answerlines
+
+\end{question}
+
+\begin{question} %% understand it?
+  HOMEWORK. \textit{The Music Lab} is a research group in the Department of
+  Psychology at Harvard University. One of their studies investigates
+  how well we perceive tone. Let's try to understand ourselves better
+  now and join them at \textit{The Music Lab}. 
+  
+  \begin{enumerate}
+      \item Find yourself a pair of
+  headphones and a quiet space and go to:
+  \begin{center}
+    \url{https://www.themusiclab.org/quizzes/td}
+    %% Note, games might be better
+  \end{center}
+ \item In the study, you heard tones that were $1/8$, $1/16$, $1/32$,
+    $1/64$, $1/128$ higher (or lower) than a given tone. Write these fractions as percents. For example, if a tone was increased by $1/2$ that would be the same as increasing by $50\%$, whereas if it decreased by $1/10$, that would be a $-10\%$ difference.
+    
+    \answerlines
+\end{enumerate}
+\end{question}
+
+
+\end{document}

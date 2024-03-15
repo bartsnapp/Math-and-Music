@@ -1,0 +1,136 @@
+\documentclass[12pt,noauthor,nooutcomes, handout]{ximera}
+
+\author{Snapp and Delgado and Zimmerman}
+
+\input{../preamble.tex}
+
+
+
+\title{Generators and circles}
+
+\begin{document}
+\begin{abstract}
+  Certain steps will take us to all notes and others won't.
+\end{abstract}
+\maketitle
+
+%\url{https://onlinesequencer.net/2760870}
+
+
+
+Musicians and mathematicians wish to master their art; in this quest sometimes, musicians play a little game where they go on a ``tour of notes'' with their instrument by successively playing a sequence of notes always skipping a given number of cents. 
+
+For example: Maybe, the musician will start on $A_4$, and play a note $200$ cents higher to get a sequence of notes:
+\[
+A_4 \lto^{200} B_4 \lto^{200} C_5\sharp \lto^{200} D_5\sharp \lto^{200} F_5 \lto^{200} G_5 \lto^{200} A_5
+\]
+However, the range of the instrument is limited, so instead of continuing to play higher and higher pitches, the musician thinks in terms of octaves. In other words, while doing these tours, they forget about the subscripts for a moment and just focus on the letters of each pitch. So the example tour above becomes:
+
+\[
+A \lto^{200} B \lto^{200} C\sharp \lto^{200} D\sharp \lto^{200} F \lto^{200} G \lto^{200} A
+\]
+
+After all, remember we hear $A_4$ and $A_5$ as the same note.
+
+
+When working with these tours, it is useful to have the following image in mind, a single octave of the piano.
+
+\ttPianoNoStaff
+
+When using the image above, you imagine that when you get to the end on $B$, you jump back to the beginning, and there's a 100 cent difference between $B$ and $C$.
+
+\begin{question} Now you do it! Let's draw the tours starting with $A$, with the indicated step sizes.
+\begin{enumerate}
+    \item $300$
+    \item $400$ 
+    \item $500$
+    \item $600$
+    \item $700$
+    \item $800$ 
+    \item $900$
+    \item $1000$
+    \item $1100$
+    \item $1200$
+
+
+
+\item Thinking about your answers above, what's special about tours of step size $100$, $500$, $700$, $1100$?
+\end{enumerate}
+\end{question}
+
+
+\begin{question}
+As we've seen before, if the step size is $100$ cents we visit all the notes on the keyboard in order:
+\[
+A \lto^{100} A\sharp \lto^{100} B \lto^{100} C \lto^{100} C\sharp\lto^{100} D \lto^{100} D\sharp \lto^{100} E \lto^{100} F \lto^{100} F\sharp \lto^{100} G \lto^{100} G\sharp \lto^{100} A
+\]
+Musicians are interested in tours that hit all notes, like the one above. Moreover, they would like to know which notes \textbf{sound good}  when played together. This helps musicians understand how to create pleasant melodies and chords.
+
+Consider a tour where the step size is $700$ cents: 
+\begin{instructorNotes}
+Play the sequence below on the online sequencer (or on the actual keyboard) to demonstrate that this sequence doesn't meet the condition: notes that are close together don't sound good together.
+
+Then play the second one to show that one sounds better.
+\end{instructorNotes}
+\[
+A \lto^{700} E \lto^{700} B \lto^{700} F\sharp \lto^{700} C\sharp\lto^{700} G\sharp \lto^{700} D\sharp \lto^{700} A\sharp \lto^{700} F \lto^{700} C \lto^{700} G \lto^{700} D \lto^{700} A
+\]
+Each of these notes sounds harmonious when played with its adjacent notes. Moreover, since these tours end where they started (not counting octaves!) we can (and musicians usually do) draw them on a circle, behold:
+\begin{center}
+\newcommand*{\mynotes}{$A$,$A\sharp$,$B$,$C$,$C\sharp$,$D$,$D\sharp$,$E$,$F$,$F\sharp$,$G$,$G\sharp$}
+\circleTour{\mynotes}{100}
+\qquad
+\renewcommand*{\mynotes}{$A$,$E$,$B$,$F\sharp$,$C\sharp$,$G\sharp$,$D\sharp$,$A\sharp$,$F$,$C$,$G$,$D$}
+\circleTour{\mynotes}{700}
+\end{center}
+Looking at the circles above, explain the relationship between those two tours and the tours of $1100$ cents and $500$ cents (that you wrote on question 1 above).
+
+\answerspace
+
+\answerspace
+
+\end{question}
+
+
+\begin{question}
+The 700 cent circle above appeared all over the place in classical music.
+Consider the following selection from \emph{Cantata 51} by J.S.\ Bach.
+
+
+\centerline{\includegraphics[width=.9\textwidth]{generators/Bach.png}}
+
+You can listen to this here:
+
+\begin{center}
+\url{https://go.osu.edu/cantata}
+\end{center}
+
+\begin{enumerate}
+    \item Write down the first note in each of the first $5$ triplets. (In other words, what are the 1st, $4$th, $7$th, $10$th, and $13$th notes in this selection?)
+
+\answerspace
+
+\answerspace
+
+    \item Compare this list to the $700$ cent circle from above. What do you notice?
+\end{enumerate}
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,524 @@
+\documentclass[12pt,noauthor,nooutcomes,instructornotes]{ximera}
+%% SEE: https://www.overleaf.com/project/626c378b4e3e27903576f685
+\author{Monica Delgado and Bart Snapp and Deb Stout}
+
+\input{../preamble.tex}
+
+%% SEE: https://www.musicca.com/drum-machine
+\title{Time signature}
+
+\begin{document}
+\begin{abstract}
+Time signature helps organize the rhythm of music.
+\end{abstract}
+\maketitle
+
+\begin{instructorNotes}
+Here is a playlist with all the music from this activity (in order):
+\begin{center}
+    \url{https://youtube.com/playlist?list=PLVOdYAgQaBnoIWgTHz61y_6PzqRtckYqE}
+\end{center}
+
+\end{instructorNotes}
+
+
+Recall that notes are organized into \textbf{measures}, or \textbf{bars}, and that all the measures in a music piece have the same length unless otherwise stated. The \textbf{time signature} tells us how much music fits in each measure.
+\begin{center}
+ \begin{tikzpicture}
+  \node at (0,0) {\meterfrac{\raisebox{.2em}{M}}{W}};
+  \node[anchor=west] at (1,1) {number of beats in a measure};
+  \node[anchor=west] at (1,-1) {number of beats in a whole note};
+  \draw[->] (1,.9) -- (.4,.4);
+  \draw[->] (1,-.9) -- (.4,-.4);
+ \end{tikzpicture}
+\end{center}
+
+  Notice how this again is similar to how we read fractions. In a fraction, the denominator (the number on the bottom) tells us in how many equal parts we break a whole, while the numerator (the number above) tells how many parts we take.
+  
+  With time signature, the number on the bottom tells us in how many beats we will break the whole into, while the number above tells us how many of those parts or beats we will use for each measure.
+  
+  For example in the passage below, from Petzold's \textit{Minuet in G Major}, the time signature is
+  $\timesig{3}{4}$:
+  \begin{center}
+    \includegraphics[width=.8\textwidth]{menuett34.png}
+  \end{center}
+  Here a whole note is broken into $4$ beats, and each measure has $3$ beats, meaning there are $3$ quarter notes per measure.  \textbf{Verify in the staff above that each measure adds to $\sfrac{3}{4}$ notes.} 
+  
+  However, the value of the time signature is not purely quantitative, it has a qualitative side as well. A time signature of \timesig{3}{4} means one should ``count''
+  \begin{center}
+  ONE-two-three  ONE-two-three  ONE-two-three
+  \end{center}
+ stressing the first note of every measure. Here is how some other time signatures are counted:
+\begin{itemize}
+\item In \timesig{4}{4} time, we count:  ONE-two-three-four
+\item In \timesig{6}{8} time, we count: ONE-two-three-FOUR-five-six 
+\item In \timesig{5}{4} time, we count:  ONE-two-three-ONE-two 
+\end{itemize}
+
+\begin{instructorNotes}
+Illustrate these time signatures in the drum machine and have the class count to them out-loud.
+\begin{itemize}
+    \item \timesig{3}{4} \url{https://www.musicca.com/drum-machine?data=%225.0.1-1.0.1-1.4.1-1.8.1-m.-t.3-tmp.120-s.0%22}
+    \item \timesig{4}{4} \url{https://www.musicca.com/drum-machine?data=%221.0.1-1.4.1-1.8.1-1.12.1-5.0.1-m.-t.4-tmp.120-s.0%22}
+    \item \timesig{6}{8} \url{https://www.musicca.com/drum-machine?data=%221.0.1-1.2.1-1.4.1-1.6.1-1.8.1-1.10.1-5.0.1-m.-t.6-tmp.110-s.0%22}
+    \item \timesig{5}{4} \url{https://www.musicca.com/drum-machine?data=%221.0.1-1.2.1-1.4.1-1.6.1-1.8.1-5.0.1-5.6.1-m.-t.5-tmp.110-s.0%22}
+\end{itemize}
+
+\end{instructorNotes}
+
+
+Different time signatures naturally emphasize different aspects of the music. Artists and composers use time signature to communicate these aspects both to the musician and the listener.
+ 
+ 
+
+
+%For students
+\begin{question} 
+Below we will listen to music that has same essential melody, yet rhythmically, they are quite different. 
+\begin{enumerate}
+\item Consider these two pieces of music:
+\begin{itemize}
+    \item \link[The Toys, \textit{A lover's concerto}]{https://youtu.be/BCZdMU53Ugo} % 4/4
+    \item \link[Petzold, \textit{Minuet in G Major}]{https://youtu.be/KqSAGwa49MM} % 3/4
+\end{itemize}
+Try counting with the beat. Which piece above seems to work best with counting to $3$? What about counting to $4$?
+
+\answerlines
+
+
+
+\item Now consider these three pieces: 
+\begin{itemize}
+    \item \link[McCreary, \textit{Allegro}]{https://youtu.be/PztMcNH8t2g} % 4/4
+    \item \link[McCreary, \textit{Passacaglia}]{https://youtu.be/Mj2C7QKNZCo} % 3/4
+    \item \link[McCreary, \textit{Shape of things to come}]{https://youtu.be/x8zsE5zdlsQ} % 6/8
+    %We need more examples
+\end{itemize}
+Try counting with the beat. Which piece above seems to work best with counting to $3$? What about counting to $4$? What about counting to $6$?
+
+\answerlines
+
+
+\end{enumerate}
+
+\end{question}
+
+
+\begin{question} 
+Here are some examples of music in common time signatures. 
+\begin{multicols}{2}
+\begin{enumerate}
+    \item \link[Taylor Swift, \textit{Shake it off}]{https://youtu.be/nfWlot6h_JM} %4/4          %%%%
+    \item \link[The Beatles, \textit{Norwegian wood}]{https://youtu.be/Y_V6y1ZCg_8} %6/8         %%%%%%
+    \item \link[Schifrin, \textit{Mission Impossible theme}]{https://youtu.be/tGSUjuSBt1A} %5/4  %%%%%
+    \item \link[Billy Joel, \textit{Piano man}]{https://youtu.be/QwVjTlTdIDQ} %3/4               %%%%
+    \item \link[The Animals, \textit{House of the rising sun}]{https://youtu.be/sHbKdI26RkE} %6/8
+    \item \link[Sting, \textit{Seven days}]{https://youtu.be/pG7_gceIFL4} %5/4
+    \item \link[Keith Urban, \textit{Blue ain't your color}]{https://youtu.be/SoIKv3xxuMA} %6/8
+    \item \link[Stone Temple Pilots, \textit{Big bang baby}]{https://youtu.be/G0gAxuvo5rc} %4/4
+    \item \link[John Mayer, \textit{Gravity}]{https://youtu.be/7VBex8zbDRs} %6/8
+    \item \link[Brubeck, \textit{Take five}]{https://youtu.be/vmDDOFXSgAs} %5/4
+    \item \link[Queen, \textit{We are the champions}]{https://youtu.be/04854XqcfCY} %6/8
+    \item \link[Taylor Swift, \textit{Tolerate it}]{https://youtu.be/ukxEKY_7MOc} %5/4
+    \item \link[Billie Eilish, \textit{idontwannabeyouanymore}]{https://youtu.be/-tn2S3kJlyU} %3/4
+    \item \link[OSUMB, \textit{I wanna go back}]{https://youtu.be/QBiY48bRO-I} %6/8
+    \item \link[John Coltrane, \textit{Giant steps}]{https://youtu.be/30FTr6G53VU} %4/4
+    \item \link[Hozier, \textit{From Eden}]{https://youtu.be/cI0wUoCLnLk} %5/4
+    \item \link[The Beatles, \textit{Tomorrow never knows}]{https://youtu.be/pHNbHn3i9S4} %4/4
+    \item \link[Kelly Clarkson, \textit{Breakaway}]{https://youtu.be/c-3vPxKdj6o} %3/4
+\end{enumerate}
+\end{multicols}
+Listen to them carefully, counting along with the beat, trying to catch the time signature---sometimes there's more than one right answer!  Choose which time signature you think fits with the song, and place that song's letter ((a) through (v)) in the corresponding box below.
+\[
+\renewcommand{\arraystretch}{4}
+\begin{array}{|c|c|}\hline
+ \scalebox{1.5}{\timesig{4}{4}}  & \rule{2in}{0in}  \\ \hline
+ \scalebox{1.5}{\timesig{3}{4}}  & \\ \hline
+ \scalebox{1.5}{\timesig{6}{8}}  & \\ \hline
+ \scalebox{1.5}{\timesig{5}{4}}  & \\ \hline
+\end{array}
+\]
+
+\end{question}
+
+\begin{instructorNotes}About the drum machine: 
+
+The website shows a single measure. Each number corresponds to a beat. Each beat then is subdivided into rectangles to allow for shorter notes (eights or sixteenths, depending on the time signature).
+
+Next, each height on the staff corresponds to a different drum. They can choose any drums they want, but all notes on the same line of the staff should be marked on the same drum.
+
+Example solutions are shown for the four passages that students will encode on the drum machine.
+
+In all these examples, the idea is that the upper row marks the rhythm, while the bottom row has two other drums, which play at some of the beats, but not all.
+\end{instructorNotes}
+
+
+\begin{question}
+Recall that musicians (typically) write music on the staff and that, in the examples we have seen so far, notes of different heights simply represent different drums. Let's say
+\begin{center}
+\begin{tikzpicture}
+  \node at (0,0) {\mbox{
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{2}                 % lines per instrument
+    \staffbotmarg0pt%
+    \stafftopmarg0pt%
+\generalmeter{\meterfrac{4}{4}}
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+  \Notes  
+  \qu f  \phantom{\cl n}  \cl  j  \qu f  \phantom{\cl n}  \cu f \ql j
+  \nextstaff
+  \Uptext{\metron{\qu}{160}}\ql n   \phantom{\cl n}  \ql n \phantom{\cl n} \ql n    \phantom{\cl n}  \ql n \phantom{\cl n}   \en
+\setrightrepeat
+\endextract
+}};
+  \node[] at (2.4,-2.5) {snare drum};
+  \node[] at (-2,-2.5) {bass drum};
+  \node[] at (2.5,1.6) {hi-hat};
+  \node[anchor=west] at (4.8,-.4) {repeat};
+  \draw[->] (4.8,-.3) -- (4.5,.2); %repeat
+  \draw[->] (4.8,-.6) -- (4.5,-1.3); %repeat
+  \draw[->] (2.4,1.4) -- (2.4,1); %HH
+  \draw[->] (2.4,-2.4) -- (2.4,-2); %%SD
+  \draw[->] (-2,-2.4) -- (-2,-2); %%BD
+\end{tikzpicture}
+\end{center}
+    Note that this staff now indicates a tempo equation as well as the time signature.
+
+With this information, we can encode the passage above into  a  simple drum machine,  
+ \begin{center}
+    \url{https://www.musicca.com/drum-machine}
+ \end{center}
+ like this:
+ \begin{center}%% https://www.musicca.com/drum-machine?data=%226.0.1-5.4.1-6.6.1-6.10.1-5.12.1-0.0.1-0.4.1-0.8.1-0.12.1-m.-t.4-tmp.160-s.0%22
+\includegraphics[width=0.8\textwidth]{heyYaCymMMdrums.png}
+\end{center}
+\textbf{In the screenshot above, circle where the time signature and the tempo are indicated.}
+
+Now it's your turn.
+  \begin{enumerate}
+  \item Encode the following passage in the drum machine:
+  
+  \begin{music}
+    \staffbotmarg0pt%
+    \stafftopmarg0pt%
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{2}                 % lines per instrument
+\generalmeter{\meterfrac{4}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+% bar 1
+  \Notes  
+  \qu f \phantom{\cu l}  \ql  j \phantom{\cu l}  \qu f\phantom{\cu l} \ql j
+  \nextstaff
+  \Uptext{\metron{\qu}{120}}\cl n   \cl n  \cl n \cl n \cl n    \cl n  \cl n \cl n   \en
+\setrightrepeat
+\endextract\end{music}
+\begin{instructorNotes} Solution:
+
+\url{https://www.musicca.com/drum-machine?data=%220.0.1-0.2.1-0.4.1-0.6.1-0.8.1-0.10.1-0.12.1-0.14.1-6.0.1-6.8.1-5.4.1-5.12.1-m.-t.4-tmp.120-s.0%22}
+  
+  \includegraphics[width=0.8\textwidth]{solution44.png}
+  \end{instructorNotes}
+  
+
+  
+  \item Encode the following passage in a drum machine:
+  
+  \begin{music}
+    \staffbotmarg0pt%
+    \stafftopmarg0pt%
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{2}                 % lines per instrument
+\generalmeter{\meterfrac{3}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+% bar 1
+  \Notes  
+  \qu f \phantom{\cu l}  \ql  j \phantom{\cu l} \ql j
+  \nextstaff
+  \Uptext{\metron{\qu}{100}}\cl n   \cl n  \cl n \cl n \cl n    \cl n     \en
+\setrightrepeat
+\endextract\end{music}
+  
+  \begin{instructorNotes} Solution:
+  
+ \url{https://www.musicca.com/drum-machine?data=%220.0.1-0.2.1-0.4.1-0.6.1-0.8.1-0.10.1-6.0.1-5.4.1-5.8.1-m.-t.3-tmp.100-s.0%22}
+  
+  \includegraphics[width=0.8\textwidth]{solution34.png}
+  \end{instructorNotes}
+  
+  \item  Encode the following passage in the drum machine:
+  
+  \begin{music}
+    \staffbotmarg0pt%
+    \stafftopmarg0pt%
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{2}                 % lines per instrument
+\generalmeter{\meterfrac{6}{8}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+% bar 1
+  \Notes  
+  \qup f \phantom{\cu l}\phantom{\cu l}   \qlp  j \phantom{\cu l} 
+  \nextstaff
+  \Uptext{\metron{\qu}{180}}\cl n   \cl n  \cl n \cl n \cl n    \cl n     \en
+\setrightrepeat
+\endextract\end{music}
+
+  \begin{instructorNotes} Solution:
+  
+ \url{https://www.musicca.com/drum-machine?data=%220.0.1-0.2.1-0.4.1-0.6.1-0.8.1-0.10.1-6.0.1-5.6.1-m.-t.6-tmp.90-s.0%22}
+
+  \includegraphics[width=0.8\textwidth]{solution68.png}
+  \end{instructorNotes}
+  
+  \item  Encode the following passage in a drum machine:
+  
+  \begin{music}
+    \staffbotmarg0pt%
+    \stafftopmarg0pt%
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{2}                 % lines per instrument
+\generalmeter{\meterfrac{5}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+% bar 1
+  \Notes  
+  \qu f \phantom{\cu l}   \cl  j  \cu  f\qu f \phantom{\cu l} \ql j \phantom{\cu l} \qu f
+  \nextstaff
+  \Uptext{\metron{\qu}{132}}\cl n   \cl n  \cl n \cl n \cl n    \cl n  \cl n    \cl n  \cl n    \cl n     \en
+\setrightrepeat
+\endextract\end{music}
+  
+  \begin{instructorNotes} Solution:
+  
+ \url{https://www.musicca.com/drum-machine?data=%220.0.1-0.1.1-0.2.1-0.3.1-0.4.1-0.5.1-0.6.1-0.7.1-0.8.1-0.9.1-6.0.1-6.3.1-6.4.1-6.8.1-5.2.1-5.6.1-m.-t.5-tmp.132-s.0%22}
+
+  \includegraphics[width=0.8\textwidth]{solution54.png}
+  \end{instructorNotes}
+  \end{enumerate}
+  
+\end{question} 
+
+
+\begin{instructorNotes}
+Students will work through this question individually on in small groups. 
+
+This question can look a little daunting at first, students might wonder how to decide what "reasonable" is. However, it is not as hard as it looks. Encourage students to start by finding patterns in the note sequence. In the first example, all measures turn out to be equal, so finding the repetition patterns actually solves the problem. After that, remind students to figure out what the time signature is, by adding up the notes on each measure.
+
+In the other questions, the measures have two different forms. For (c), following the same process as before, students are likely to conclude on three measures and a 12/8 time signature. While this isn't incorrect, there's another alternative. Ask students if the current measures can be subdivided and still make sense. They should find that the 12/8 measures can be split "in half" to give a 6/8 time signature.
+
+\end{instructorNotes}
+
+
+\begin{question}
+Time signatures help musicians organize notes into ``reasonable'' chunks. Break the following passages into chunks of equal "size," chunks that add up to the same fraction, and add vertical lines to create measures. Then figure out what time signature this corresponds to and write it at the beginning of the staff.
+
+%For each passage below, pick a time signature that makes sense to you, and add vertical lines to create measures. 
+\begin{enumerate}%3/4
+\item \hspace{-.65in}\raisebox{-2em}{\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{~~~~} %\meterfrac{3}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+\notes \qu h \qu h \ibu0j0\xtuplet3 s\qb0{hh}\tbu0\qb0h \qu h \qu h \ibu0j0\xtuplet3 s\qb0{hh}\tbu0\qb0h  \qu h \qu h \ibu0j0\xtuplet3 s\qb0{hh}\tbu0\qb0h  \qu h \qu h \ibu0j0\xtuplet3 s\qb0{hh}\tbu0\qb0h \qu h \qu h \ibu0j0\xtuplet3 s\qb0{hh}\tbu0\qb0h 
+\en
+\endextract
+\end{music}}
+
+
+
+\begin{instructorNotes}
+
+
+\resizebox{.8\textwidth}{!}{\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{\meterfrac{3}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+\notes \qu h \qu h \ibu0j0\xtuplet3 s\qb0{hh}\tbu0\qb0h \en \bar
+\notes \qu h \qu h \ibu0j0\xtuplet3 s\qb0{hh}\tbu0\qb0h \en \bar
+\notes \qu h \qu h \ibu0j0\xtuplet3 s\qb0{hh}\tbu0\qb0h \en \bar
+\notes \qu h \qu h \ibu0j0\xtuplet3 s\qb0{hh}\tbu0\qb0h \en \bar
+\notes \qu h \qu h \ibu0j0\xtuplet3 s\qb0{hh}\tbu0\qb0h 
+\en
+\endextract
+\end{music}}
+\end{instructorNotes}
+
+
+%4/4
+\item \hspace{-.93in}\raisebox{-2em}{\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{~~~~} %\meterfrac{3}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+\notes 
+\qu h \qu h \hu h
+\qu h \qu h \hu h
+\uptuplet{q}{2.8}{0}\qu h \qu h \qu h \hu h
+\qu h \qu h \hu h
+\qu h \qu h \hu h
+\uptuplet{q}{2.8}{0}\qu h \qu h \qu h \hu h
+\en
+%this was too hard
+%\cu h  \ccu h \cup h \ccu h \ccu h  \cu h \cup h \ccu h \cu h 
+%\cu h  \ccu h \cup h \ccu h \ccu h  \cu h \cup h \ccu h \cu h 
+%\qu h  \qu h \hu h \en
+\endextract
+\end{music}}
+
+
+
+
+
+
+\begin{instructorNotes}
+
+\resizebox{.8\textwidth}{!}{\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{\meterfrac{4}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+\notes \qu h \qu h \hu h \en\bar
+\notes \qu h \qu h \hu h\en\bar
+\notes \uptuplet{q}{2.8}{0}\qu h \qu h \qu h \hu h\en\bar
+\notes \qu h \qu h \hu h\en\bar
+\notes \qu h \qu h \hu h\en\bar
+\notes \uptuplet{q}{2.8}{0}\qu h \qu h \qu h \hu h
+\en
+\endextract
+\end{music}}
+\end{instructorNotes}
+
+
+%6/8
+\item \hspace{-.73in}\raisebox{-2em}{\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{~~~~} %\meterfrac{3}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+\notes 
+\qu h  \cu h  \qup h  \cu h \cu h \qu h \cu h \cu h 
+\qu h  \cu h  \qup h  \cu h \cu h \qu h \cu h \cu h 
+\qu h  \cu h  \qup h  \cu h \cu h \hu h
+\en
+\endextract
+\end{music}}
+
+\begin{instructorNotes}
+
+\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{\meterfrac{6}{8}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+\notes \qu h  \cu h  \qup h \en \bar
+\notes\cu h \cu h \qu h \cu h \cu h \en\bar
+\notes\qu h  \cu h  \qup h  \en\bar
+\notes\cu h \cu h \qu h \cu h \cu h \en\bar
+\notes\qu h  \cu h  \qup h  \en \bar
+\notes\cu h \cu h \hu h  \en
+\endextract
+\end{music}
+\end{instructorNotes}
+
+
+%5/4 
+\item \hspace{-.77in}\raisebox{-2em}{
+\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{~~~~} %\meterfrac{3}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+\notes 
+\qup h  \qup h \qu h \qu h 
+\qup h  \qup h \qu h \qu h 
+\cu h \cu h \wh h
+\qup h  \qup h \qu h \qu h 
+\qup h  \qup h \qu h \qu h 
+\cu h \cu h \wh h
+\en
+\endextract
+\end{music}}
+
+\begin{instructorNotes}
+
+\resizebox{.8\textwidth}{!}{
+\begin{music}
+\instrumentnumber{1}           % number of instruments
+\setstaffs1{1}                 % lines per instrument
+\generalmeter{\meterfrac{5}{4}}% time stamp. 
+\generalsignature{0}          % sets the key. a number greater than 0 is sharp, smaller than 0 is flat
+\setclefsymbol1\drumclef
+\startextract
+\notes 
+\qup h  \qup h \qu h \qu h\en \bar
+\notes \qup h  \qup h \qu h \qu h \en\bar
+\notes  \cu h \cu h \wh h\en\bar
+\notes \qup h  \qup h \qu h \qu h \en\bar
+\notes  \qup h  \qup h \qu h \qu h\en \bar
+\notes \cu h \cu h \wh h \en
+\endextract
+\end{music}}
+\end{instructorNotes}
+
+\end{enumerate}
+\end{question}
+
+
+
+
+
+
+
+
+
+
+
+\begin{question}
+Let's consider \link[Hey Ya! by Outkast]{https://youtu.be/jyyt0T-4dc4}.
+\begin{enumerate}
+\item Count along, what time signature do you think this piece is in?
+
+\answerlines
+
+\item Our friend \textit{Mathemusical Mac} has encoded the drums for this piece as follows: 
+\begin{center}%% https://www.musicca.com/drum-machine?data=%226.0.1-5.4.1-6.6.1-6.10.1-5.12.1-0.0.1-0.4.1-0.8.1-0.12.1-m.-t.4-tmp.160-s.0%22
+\includegraphics[width=0.8\textwidth]{heyYaMMdrums.png}
+\end{center}
+Is this correct for the first $10$ seconds of the song? If not, explain what's missing from \textit{Mathemusical Mac's} drum pattern.
+
+\answerlines
+
+\begin{instructorNotes}
+Answer: MM is wrong. What he encoded matches the first three measures of the song, but on the forth measure an extra beat is added.
+\end{instructorNotes}
+
+
+\end{enumerate}
+\end{question}
+
+
+
+\end{document}

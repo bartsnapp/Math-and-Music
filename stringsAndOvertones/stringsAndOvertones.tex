@@ -1,0 +1,205 @@
+\documentclass[12pt,noauthor,nooutcomes,]{ximera}
+
+\author{Deb Stout and Bart Snapp}
+
+\input{../preamble.tex}
+
+
+\title{Strings and overtones}
+
+\begin{document}
+\begin{abstract}
+  Strings of a fixed length can only vibrate certain ways.
+\end{abstract}
+\maketitle
+    
+\begin{instructorNotes}
+\begin{enumerate}
+\item The key point here is that octaves are a natural overtone of the tonic, as are dominants. 
+\item See: \url{https://www.youtube.com/watch?v=9HjEAtJXssc}
+\item Talk about vibrating a string: what it does physically to the air, and how tracking a point on the string as time passes can create our wave graph.
+
+\item Talk about fundamental frequency for a string length (what this means).
+
+\item Experiment with ropes/slinkys finding fundamental frequencies and subsequent overtones.
+
+\item there may be interference, see Mathemuscial Mac (he'll think that all these waves should cancel, and they should not)
+
+\item Talk about how overtones' frequencies relate to the fundamental frequency of the string.
+\item DEEP MATH: chladni pattern
+
+
+\item \begin{center}
+\url{https://youtu.be/BSIw5SgUirg}\\
+\url{https://youtu.be/-gr7KmTOrx0}
+\end{center}
+
+SEE: \url{http://labman.phys.utk.edu/phys221core/modules/m11/Standing\_waves.html}
+\end{enumerate}
+\end{instructorNotes}
+
+     
+
+To make music, we must ``vibrate'' air at specific frequencies. To do this, we must vibrate parts of a musical instrument at specific frequencies. A common way to do this is by ``plucking'' a piece of string that is taut and fixed at both ends. In previous activities, you have already analyzed how this forms waves. 
+%When we do this, we create a small (transverse) wave that moves like an ocean-tidal wave to the other end of the string. Since the other end is also fixed, the wave bounces back (remember that energy is not destroyed, so the wave cannot simply disappear). However, when the wave bounces, it is inverted:
+
+%If the \textbf{wavelength} of the transverse wave \textbf{evenly divides the length of the string}, then all of images above align, and our eyes will see a  a so-called \textbf{standing wave}:
+
+%This wave isn't standing at all, rather it is moving in harmony with itself. The importance of standing waves isn't just that they look cool. Since the transverse waves align so well, they do not interfere with each other. 
+
+Musically, the most acoustic energy comes when standing waves are formed. This means that notes and tones that we hear are produced by standing waves. 
+The most basic standing wave generates the \textbf{fundamental frequency} or \textbf{1st harmonic} and it looks like this:
+\begin{center}
+\begin{tikzpicture}
+  \wave{1}
+\end{tikzpicture}
+
+$1$st harmonic
+\end{center}
+However we get standing waves every time the wavelength evenly divides the string length. For your viewing pleasure, here are the next few standing waves, and what we call such phenomena:
+\begin{center}
+\begin{tabular}{ccc}
+\begin{tikzpicture}
+  \wave{2}
+\end{tikzpicture} 
+& \hspace{5ex}
+&
+\begin{tikzpicture}
+  \wave{3}
+\end{tikzpicture} \\
+$2$nd harmonic & & $3$rd harmonic \\ 
+\rule{0pt}{5ex} & & \\
+\begin{tikzpicture}
+  \wave{4}
+\end{tikzpicture} 
+&
+&
+\begin{tikzpicture}
+  \wave{5}
+\end{tikzpicture} \\
+$4$th harmonic & & $5$th harmonic \\
+\end{tabular}
+\end{center}
+And it doesn't stop there! The key thing to take away, is that the standing waves \textbf{divide the string length a whole number of times.}
+
+You can see this demonstrated in a video here:
+\begin{center}%%https://www.amazon.com/United-Scientific-WDS006-Narrow-Diameter/dp/B00ES3TA1K
+\url{https://youtu.be/PVX4V5Adbzk}
+\end{center}
+
+
+
+In practice, meaning the real world, if you pluck a string, many of the harmonics will resonate at once. The $1$st harmonic is usually the loudest, with the others being much quieter. For this reason, people call the $1$st harmonic the \textbf{fundamental frequency} and the other harmonics \textbf{overtones}. 
+
+
+
+\begin{question}
+Suppose the wavelength of the $1$st harmonic is $L$.
+\begin{enumerate}
+\item Find the wavelength of the $2$nd harmonic in terms of $L$.
+\item Find the wavelength of the $3$rd harmonic in terms of $L$.
+\item Find the wavelength of the $4$th harmonic in terms of $L$.
+\item Find the wavelength of the $5$th harmonic in terms of $L$.
+\end{enumerate}
+\end{question}
+
+\begin{question}
+The vibrating length of a string on a (full-size) violin is $12.8$ in or $32.5$ cm.
+\begin{enumerate}
+    \item Look at the pictures on the previous page and note that the fundamental frequency makes a wave that only fits one crest on the string. Remember that a wavelength is the length of a full wave (from crest to crest). What is the wavelength of the fundamental frequency wave on this string?
+    \item Now focus on the $2$nd harmonic. What would be the wavelength of the $2$nd harmonic on this string? What's the relation (ratio) between the wavelength of the $1$st and $2$nd harmonics?
+    \item Repeat the last two steps for the $3$rd harmonic.
+    \item Figure out what the frequency of this string would be vibrating on the $1$st harmonic. In other words, calculate the fundamental frequency of the string. Hint: Check back on your Waves handout.
+    \item What is the frequency of the $2$nd harmonic?
+    \item Now, let's call the fundamental frequency that you calculated before $F_1$. Write a formula to calculate the frequency of the $2$nd harmonic from $F_1$. 
+\end{enumerate}
+\end{question}
+
+\begin{question}
+Now let's do this more generally. Suppose the wavelength of the $1$st harmonic is $L$ and its frequency is $F$.
+\begin{enumerate}
+\item Explain why the speed of the wave along the string is $L\cdot F$. This speed will be \textbf{constant} for all wavelengths and frequencies.
+\item Find the frequency of the $2$nd harmonic in terms of the frequency of the $1$st harmonic. 
+\item Find the frequency of the $3$rd harmonic in terms of the frequency of the $1$st harmonic. 
+\end{enumerate}
+
+\end{question}
+
+\begin{question}
+Consider a string that vibrates with a fundamental frequency of 220 Hz and another one that vibrates with a fundamental frequency of 330 Hz. Calculate all their harmonics up to the $5$th.
+\begin{enumerate}
+    \item Write down the sequence of frequencies of the harmonics for the first string. Can you guess what the next terms (the frequencies of the 6th and 7th harmonics) would be?
+%Answer: 220, 440, 660, 880, 1100, 1320, 1540
+    \item Now write down the sequence of frequencies of the harmonics for the other string. 
+%Answer: 330, 660, 990, 1320, 1650
+    \item Recall that the harmonics from the $2$nd up are called overtones. Which overtones do the two strings share? Can you predict if and when they will share other overtonal frequencies?
+    \item This should probably ring a bell from school math. Thinking of math, what is the frequency of the first shared overtone called in relation to the fundamental frequencies of both strings?
+\end{enumerate}
+
+\end{question}
+
+\begin{question} The musicians of our past realized that two strings plucked in certain ratios sounded good together. It's a fact: Two plucked strings sound good together when the strings share a lot of overtones.  Remember what you learned about overtones and deduce which ratios (of wavelength) might sound good together. Hint: Look back at the previous handout.
+\end{question}
+
+
+
+
+\begin{question} %% inspired by: http://labman.phys.utk.edu/phys221core/modules/m11/Standing_waves.html
+Let's look at one of our standing waves again:
+\begin{center}
+\begin{tikzpicture} 
+\wave{5}
+\end{tikzpicture}
+\end{center}
+The string is not moving where the curves cross. These are called \textbf{nodes}. 
+\begin{enumerate}
+\item Imagine a string that is taut between two fixed points. 
+\begin{center}
+\begin{tikzpicture}[scale=2]
+  \draw[wood] (0,-1.4*\A) rectangle++ (-\t,2.8*\A);
+  \draw[wood] (\L,-1.4*\A) rectangle++ ( \t,2.8*\A);
+  \draw[rope,variable=\x,domain=0:5]
+    plot(\x,0);
+    \foreach \i in {1,...,5} {  
+    \draw[variable=\y,domain=-.3:.3] 
+    plot(\i*5/6,\y);
+    \node[below] at (\i*5/6,-.3) {\i};
+}
+    
+  \draw[metal] (0,0) circle(0.7*\t);
+  \draw[metal] (\L,0) circle(0.7*\t);
+\end{tikzpicture}
+\end{center}
+If the string is held fixed at point $2$, and plucked at at point $1$, draw the resulting standing wave.
+\item  When plucking a string, the amplitude of the overtones is necessarily less than that of the fundamental frequency. Explain why remembering that \textbf{nodes are fixed}.
+\end{enumerate}
+
+
+\end{question}
+
+
+
+
+\begin{question} 
+This time \textit{Mathemusical Mac} speaks up: I think the harmonics should be silent because the waves cancel, see
+\begin{center}
+\begin{tikzpicture}
+  \wave{5}
+\end{tikzpicture}
+\end{center}
+Is \textit{Mathemusical Mac} correct or incorrect? Explain your reasoning.
+\end{question}
+
+
+\begin{question}
+Try your hand at identifying overtones with this game:
+
+\begin{center}
+    \url{https://phet.colorado.edu/sims/html/fourier-making-waves/latest/fourier-making-waves_en.html}
+\end{center}
+Select \textit{Wave Game}.
+\end{question}
+
+
+
+\end{document}

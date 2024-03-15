@@ -1,0 +1,1522 @@
+%% for par indent/spacing
+%\usepackage[skip=20pt plus1pt, indent=10pt]{parskip}
+%% we have setspace loaded below.. maybe that is better.
+
+
+
+
+\graphicspath{  
+{./}
+{./rhythm/}
+{./timeSignature/}
+{./pitch/}
+{./modularNotes/}
+{./waves/}
+{./superposition/}
+{./stars/}
+}
+
+%\input Starburst.fd
+%\newcommand*\initfamily{\usefont{U}{Starburst}{xl}{n}}
+%\et\othermaketitle\maketitle
+%\enewcommand{\maketitle}{ %
+%\pagestyle{empty}
+%\theauthor
+%{\initfamily \scalebox{10}{Math}\\[10pt]\scalebox{6}{and} \\[10pt] \scalebox{10}{music}}
+%\newpage
+%\pagestyle{main} %switch to main pagestyle, just like ximera documents.
+%\let\maketitle\othermaketitle % renew maketitle to usual definition.
+%}
+
+\newcommand{\BAMM}{\textbf{\textsf{BAMM}}}
+
+\renewcommand{\link}[2][]{\href{#2}{#1}}
+
+%% to fix multicol in triplets in beatsAndTime
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+
+
+
+
+%% for multiple staffs same line mod notes
+\usepackage{multicol}
+\usepackage{xfrac}
+
+
+%% Larger sharp and flat
+%\let\tmpsharp\sharp
+%\renewcommand{\sharp}{{\mbox{\normalsize$\tmpsharp$}}}
+%\let\tmpflat\flat
+%\renewcommand{\flat}{{\mbox{\normalsize$\tmpflat$}}}
+
+
+
+
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\lto}{\mathop{\longrightarrow\,}\limits} %% labeled to
+
+\renewcommand{\gcd}{\mathrm{GCD}}
+\newcommand{\lcm}{\mathrm{LCM}}
+
+\newcommand{\answerbox}{\raisebox{-4ex}{\fbox{\hspace{1.25in}\rule[.7in]{0pt}{0pt}}}}
+\newcommand{\smallanswerbox}{\raisebox{-4ex}{\fbox{\hspace{.5in}\rule[.7in]{0pt}{0pt}}}}
+
+
+%% for hertz and cents
+\usepackage{musicography}
+\usepackage{musixtex}
+\input{musixper}
+\def\threedp#1{\pgfmathparse{#1}\expandafter\Threedp\pgfmathresult0000@}
+\def\Threedp#1.#2#3#4#5@{#1.#2}
+
+%%%%% End herz cents
+%%%%%
+
+%% for annotated bib
+\let\oldbibliography\thebibliography%% to compact bib
+\renewcommand{\thebibliography}[1]{%
+  \oldbibliography{#1}%
+  \setlength{\itemsep}{0pt}%
+}
+\renewcommand\refname{} %% no name needed!
+\usepackage{setspace} %% for tighter annotate
+\NewEnviron{annotate}{\vspace{-.1cm}\small \begin{spacing}{0.1} \itshape \BODY \end{spacing}\vspace{1cm}}
+
+
+
+
+\usepackage[tikz]{mdframed}
+\mdfdefinestyle{OutcomeStyle}{backgroundcolor=none,leftmargin=2cm,rightmargin=2cm,linecolor=black,roundcorner=5pt,
+, font=\small\sffamily,}%font=\wedn\bfseries\upshape,}
+\newenvironment{listOutcomes}{\begin{mdframed}[style=OutcomeStyle]After answering the following questions, students should be able to:\begin{itemize}}{\end{itemize}\end{mdframed}}
+\newenvironment{listSectionOutcomes}{\begin{mdframed}[style=OutcomeStyle]After completing the following journal entries, students should be able to:\begin{itemize}}{\end{itemize}\end{mdframed}}
+
+
+
+
+
+\usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font
+\usepackage{fullpage}
+\usepackage[T1]{fontenc}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\usepackage{wasysym,qtree}
+
+
+
+%% TO HERE!!
+\def\freqbarno{9999}% no bar numbers
+
+
+
+
+%https://tex.stackexchange.com/questions/266560/drawing-music-staves-with-rule-loop
+\newcommand{\staff}[2][5]{%[# of lines per staff]{# of staves}
+    \begingroup
+    \parindent0pt
+    \noindent
+    \foreach \y in {1,...,#2}{%
+        \foreach \x in {1,2,...,#1}{%
+            \rule{\textwidth}{0.4pt}% {<staff width>}{<line thickness>}
+            \par
+            \nointerlineskip
+            \vskip6pt% Distance between the lines
+        }%
+        \vspace{0.25in}% Distance between staves
+    }%
+    \endgroup
+}
+
+
+
+%% thm like environments
+\let\question\relax
+\let\endquestion\relax
+%\newtheoremstyle{QuestionStyle}{\topsep}{\topsep}%%% space between body and thm
+%		{}                      %%% Thm body font
+%		{}                              %%% Indent amount (empty = no indent)
+%		{\bfseries}            %%% Thm head font
+%		{)}                              %%% Punctuation after thm head
+%		{ }                           %%% Space after thm head
+%		{\thmnumber{#2}\thmnote{ \bfseries(#3)}}%%% Thm head spec
+%\theoremstyle{QuestionStyle}
+%\newtheorem{question}{}
+
+
+
+%% Our custom question environment
+\newcounter{question}[problem]
+\newenvironment{question}{\refstepcounter{question}\ifhandout\newpage\fi
+\par\medskip
+   \noindent \textbf{\thequestion)} \rmfamily}{\medskip}
+
+\newcounter{project}[problem]
+\newenvironment{project}{\refstepcounter{project}
+\par\medskip
+   \noindent \textbf{\theproject)} \rmfamily}{\medskip}
+
+
+
+\newcommand{\answerspace}{\ifhandout
+\hspace{0pt}
+\vspace{1in}
+\hspace{0pt}
+\fi}
+
+\newcommand{\answerlines}{\ifhandout
+  \rule{\textwidth}{.5pt}
+  
+  \rule{\textwidth}{.5pt}
+  
+  \rule{\textwidth}{.5pt}\fi
+}
+
+\newcommand{\answermusic}{\ifhandout
+  \rule{\textwidth}{.5pt}\\[-7pt]
+  \rule{\textwidth}{.5pt}\\[-7pt]
+  \rule{\textwidth}{.5pt}\\[-7pt]
+  \rule{\textwidth}{.5pt}\\[-7pt]
+  \rule{\textwidth}{.5pt}\fi
+}
+
+
+
+
+%% see https://tex.stackexchange.com/questions/508619/fill-page-with-lines
+%% see https://tex.stackexchange.com/questions/266560/drawing-music-staves-with-rule-loop
+%% \staff{5}
+%% end question
+
+
+\newcommand{\timesig}[2]{\scalebox{.7}{\raisebox{-1ex}{\meterfrac{#1}{#2}}}}
+
+
+\newcommand{\stringstar}[2]{\left\{\frac{#1}{#2}\right\}}
+
+
+
+
+\makeatletter
+
+\newcommand\frontstyle{%
+  \def\activitystyle{activity-chapter}
+  \def\maketitle{%
+                {\flushleft\small\sffamily\bfseries\@pretitle\par\vspace{-1.5em}}%
+                {\flushleft\LARGE\sffamily\bfseries\@title \par }%3
+                {\vskip .6em\noindent\textit\theabstract\setcounter{question}{0}\setcounter{sectiontitlenumber}{0}}%
+                    \par\vspace{2em}
+                    \phantomsection\addcontentsline{toc}{section}{\textbf{\@title}}%
+                     \setcounter{titlenumber}{0}}}
+
+
+
+\newcommand\mmstyle{%
+    \cleardoublepage
+    \def\activitystyle{activity-section}
+    \def\maketitle{%
+    \addtocounter{titlenumber}{1}%
+                {\flushleft\small\sffamily\bfseries\@pretitle\par\vspace{-1.5em}}%
+                {\flushleft\LARGE\sffamily\bfseries\thetitlenumber\hspace{1em}\@title  \par }%
+                {\vskip .6em\noindent\textit\theabstract\setcounter{question}{0}\setcounter{sectiontitlenumber}{0}}%
+                    \par\vspace{2em}
+                    \phantomsection\addcontentsline{toc}{section}{\thetitlenumber\hspace{1em}\textbf{\@title}}%
+                     }}
+\makeatother
+
+\usepackage{fancyhdr}
+\setlength{\headheight}{14pt} 
+
+\fancyhf{}
+\fancyhead[LE,RO]{\textsl{\thepage}}
+
+\fancyfoot[LE,RO]{\includegraphics[width=1in]{bammLogo.png}}
+\renewcommand{\headrulewidth}{0pt}
+
+
+
+
+%% circledots
+\usetikzlibrary{math}
+\tikzset{
+    pics/circledots/.style={
+        code={
+        \tikzmath{\xx = #1;\rr=2;}
+        \foreach \x in {-1,0,...,\xx}
+        {
+        \draw[fill] ({\rr*sin(\x*360/\xx)},{\rr*cos(\x*360/\xx)}) circle (.1);
+        }
+        \draw[] (0,0) circle (\rr);
+}}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%% PIANO WITH STAFF 
+
+
+\newcommand{\pianoWithStaff}{
+%% from: https://tex.stackexchange.com/questions/136713/range-of-a-piano-keyboard-vs-staves
+\pgfdeclarelayer{blacknotes}
+\pgfsetlayers{main,blacknotes}
+\tikzset{tight fit/.style={inner sep=0pt, outer sep=0pt}}
+\begin{center}
+\begin{tikzpicture}[scale=1,every node/.style={transform shape}]
+  \def\lastnotenodename{clefs}
+  \def\minNote{1}
+  \def\maxNote{88}
+\node [text width=1cm, tight fit] (clefs) at (0,0) {
+    \begin{music}
+        \instrumentnumber{1}
+        \instrumentnumber{2}
+        \nostartrule        
+        \setstaffs1{1}
+        \setstaffs2{1}  
+        \setclef1{\bass}
+        \setclef2{\treble}                                  
+        \startextract
+        \hskip2.0\elemskip
+        \zendextract
+    \end{music}
+};
+
+\foreach \note [
+    evaluate={
+        \n=int(mod(\note-1, 12));
+        \octave=int((\note+8)/12);
+        \t=int(floor((\note-1)/12)*7-7);
+        \notename={"A","","B","C","","D","","E","F","","G",""}[\n];
+        \tonicsolfa={"la","","si","so","","re","","mi","fa","","sol",""}[\n];
+        \blacknote={0,1,0,0,1,0,1,0,0,1,0,1}[\n];
+        \frequency=(2^((\note-49)/12))*440;}
+] in {\minNote,...,\maxNote}{
+    \ifnum\octave>3
+        \tikzset{extract anchor/.style={anchor=south west, at=(\lastnotenodename.south east)}}
+    \else
+        \tikzset{extract anchor/.style={anchor=north west, at=(\lastnotenodename.north east)}}
+    \fi
+    \ifnum\blacknote=0
+        \edef\notenodename{\notename_\octave}
+        \node (\notenodename) [tight fit,text width=1cm, extract anchor/.try]  {%           
+            \begin{music}
+                \instrumentnumber{1}
+                \instrumentnumber{2}
+                \nostartrule        
+                \setstaffs1{1}
+                \setstaffs2{1}  
+                \setclefsymbol1{\empty}
+                \setclefsymbol2{\empty}     
+                \setclef1{\bass}
+                \setclef2{\treble}                      
+                \startextract
+                \transpose\t
+                \hskip-1.5\elemskip         
+                \ifnum\octave>3
+                    \ifnum\octave>4
+                        \Notes \nextinstrument \ql{\notename} \en       
+                    \else
+                        \Notes \nextinstrument \qu{\notename} \en                       
+                    \fi
+                \else
+                    \ifnum\octave>2
+                        \Notes \ql{\notename} \en
+                    \else
+                        \Notes \qu{\notename} \en
+                    \fi
+                \fi
+                \zendextract
+            \end{music}
+        };
+        \xdef\lastnotenodename{\notenodename}       
+        \node [anchor=base] (sol-fa)  at (\notenodename |- 0,-3) {\tonicsolfa$_\octave$};
+
+        \draw (\notenodename.south west |- 0,-4) rectangle ++(1, -4);
+        \ifnum\n=2
+        \node [xshift=0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=3
+        \node [xshift=-0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=5
+        \node [rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=7
+        \node [xshift=0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=8
+        \node [xshift=-0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=10
+        \node [xshift=0.0cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+
+        
+        \node [font=\footnotesize, anchor=south]  
+            at (\notenodename.south |- 0,-8) {\note};
+        \node [font=\footnotesize, anchor=south] 
+            at (\notenodename.south |- 0,-8.5)  {$\notename_\octave$};
+        \draw (\notenodename.south west |- sol-fa.south) 
+            rectangle (\notenodename.south east |- 0,1.125); %0.125 by trial and error
+    \else
+                    \ifnum\n=1 %% A#--shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=4 %% C# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=-0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=6 %% D# -- shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=9 %% F# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=-0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=11 %% G# -- Don't move
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.3cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \fi
+}
+\node [rotate=90] at (0,-6) {Frequency (Hz)};
+\end{tikzpicture}
+\end{center}%
+}
+
+
+
+
+
+
+
+
+\newcommand{\ttPiano}{%% from: https://tex.stackexchange.com/questions/136713/range-of-a-piano-keyboard-vs-staves
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+\pgfdeclarelayer{blacknotes}
+\pgfsetlayers{main,blacknotes}
+\tikzset{tight fit/.style={inner sep=0pt, outer sep=0pt}}
+
+\begin{center}
+\begin{tikzpicture}[scale=1,every node/.style={transform shape}]
+  \def\lastnotenodename{clefs}
+  \def\minNote{51}
+  \def\maxNote{61}
+\node [text width=1cm, tight fit] (clefs) at (0,-3) {
+    \begin{music}
+        \instrumentnumber{1}
+        %\instrumentnumber{2}
+        \nostartrule        
+        \setstaffs1{1}
+        %\setstaffs2{1}  
+        %\setclef1{\bass}
+        \setclef1{\treble}                                  
+        \startextract
+        \hskip2.0\elemskip
+        \zendextract
+    \end{music}
+};
+
+\foreach \note [
+    evaluate={
+        \n=int(mod(\note-1, 12));
+        \octave=int((\note+8)/12);
+        \t=int(floor((\note-1)/12)*7-7);
+        \notename={"A","","B","C","","D","","E","F","","G",""}[\n];
+        \tonicsolfa={"la","","si","so","","re","","mi","fa","","sol",""}[\n];
+        \blacknote={0,1,0,0,1,0,1,0,0,1,0,1}[\n];
+        \frequency=(2^((\note-49)/12))*440;}
+] in {\minNote,...,\maxNote}{
+    \ifnum\octave>3
+        \tikzset{extract anchor/.style={anchor=south west, at=(\lastnotenodename.south east)}}
+    \else
+        \tikzset{extract anchor/.style={anchor=north west, at=(\lastnotenodename.north east)}}
+    \fi
+    \ifnum\blacknote=0
+        \edef\notenodename{\notename_\octave}
+        \node (\notenodename) [tight fit,text width=1cm, extract anchor/.try]  {%           
+            \begin{music}
+                %\instrumentnumber{1}
+                %\instrumentnumber{2}
+                \nostartrule        
+                \setstaffs1{1}
+                %\setstaffs2{1}  
+                \setclefsymbol1{\empty}
+                %\setclefsymbol2{\empty}     
+                %\setclef1{\bass}
+                \setclef1{\treble}                      
+                \startextract
+                \transpose\t
+                \hskip-1.5\elemskip         
+                %\ifnum\octave>3
+                    %\ifnum\octave>4
+                        %\Notes \nextinstrument \ql{\notename} \en       
+                    %\else
+                    %    \Notes \nextinstrument \qu{\notename} \en                       
+                    %\fi
+                %\else
+                 %   \ifnum\octave>2
+                        \Notes \ql{\notename} \en
+                 %   \else
+                 %       \Notes \qu{\notename} \en
+                 %   \fi
+                %\fi
+                \zendextract
+            \end{music}
+        };
+        \xdef\lastnotenodename{\notenodename}       
+        %\node [anchor=base] (sol-fa)  at (\notenodename |- 0,-3) {\tonicsolfa$_\octave$};
+
+        \draw (\notenodename.south west |- 0,-4) rectangle ++(1, -4);
+        %\node [rotate=90, font=\footnotesize, anchor=east] 
+         %   at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        %\node [font=\footnotesize, anchor=south]  
+         %   at (\notenodename.south |- 0,-8) {\note};
+        \node [font=\footnotesize, anchor=south] 
+            at (\notenodename.south |- 0,-8.5)  {$\notename$};
+        %%\draw (\notenodename.south west |- sol-fa.south) 
+        %%    rectangle (\notenodename.south east |- 0,1.125); %0.125 by trial and error
+    \else
+    \ifnum\n=1 %% A#--shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=4 %% C# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=6 %% D# -- shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=9 %% F# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=11 %% G# -- Don't move
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.3cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \fi
+        %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+        %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+       }
+%\node [rotate=90] at (0,-6) {Frequency (Hz)};
+\end{tikzpicture}
+\end{center}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+}
+
+
+
+\newcommand{\noStaff}{%% from: https://tex.stackexchange.com/questions/136713/range-of-a-piano-keyboard-vs-staves
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+\pgfdeclarelayer{blacknotes}
+\pgfsetlayers{main,blacknotes}
+\tikzset{tight fit/.style={inner sep=0pt, outer sep=0pt}}
+
+
+\pgfdeclarelayer{blacknotes}
+\pgfsetlayers{main,blacknotes}
+\tikzset{tight fit/.style={inner sep=0pt, outer sep=0pt}}
+
+\begin{center}
+\vspace{-1.5in} %hack!
+\begin{tikzpicture}[scale=1,every node/.style={transform shape}]
+  \def\lastnotenodename{clefs}
+  \def\minNote{37}
+  \def\maxNote{61}
+  \node [text width=1cm, tight fit] (clefs) at (0,0) {};
+\foreach \note [
+    evaluate={
+        \n=int(mod(\note-1, 12));
+        \octave=int((\note+8)/12);
+        \t=int(floor((\note-1)/12)*7-7);
+        \notename={"A","","B","C","","D","","E","F","","G",""}[\n];
+        \tonicsolfa={"la","","si","so","","re","","mi","fa","","sol",""}[\n];
+        \blacknote={0,1,0,0,1,0,1,0,0,1,0,1}[\n];
+        \frequency=(2^((\note-49)/12))*440;}
+] in {\minNote,...,\maxNote}{
+
+    \ifnum\octave>3
+        \tikzset{extract anchor/.style={anchor=south west, at=(\lastnotenodename.south east)}}
+    \else
+        \tikzset{extract anchor/.style={anchor=north west, at=(\lastnotenodename.north east)}}
+    \fi
+    \ifnum\blacknote=0
+        \edef\notenodename{\notename_\octave}
+        \node (\notenodename) [tight fit,text width=1cm, extract anchor/.try]  {};
+        \xdef\lastnotenodename{\notenodename}       
+        %\node [anchor=base] (sol-fa)  at (\notenodename |- 0,-3) {\tonicsolfa$_\octave$};
+
+        \draw (\notenodename.south west |- 0,-4) rectangle ++(1, -4);
+        \ifnum\n=0
+        \node [xshift=0cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+         \ifnum\n=2
+        \node [xshift=0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=3
+        \node [xshift=-0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=5
+        \node [rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=7
+        \node [xshift=0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=8
+        \node [xshift=-0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=10
+        \node [xshift=0.0cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+
+        \node [font=\footnotesize, anchor=south]  
+            at (\notenodename.south |- 0,-8) {\note};
+        \node [font=\footnotesize, anchor=south] 
+            at (\notenodename.south |- 0,-8.5)  {$\notename_\octave$};
+            \else
+            \ifnum\n=1 %% A#--shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=4 %% C# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=-0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=6 %% D# -- shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=9 %% F# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=-0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=11 %% G# -- Don't move
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.3cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \fi
+            }
+\node [rotate=90] at (0,-6) {Frequency (Hz)};
+\end{tikzpicture}
+\end{center}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+}
+
+
+\newcommand{\staffBack}{%% from: https://tex.stackexchange.com/questions/136713/range-of-a-piano-keyboard-vs-staves
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+\pgfdeclarelayer{blacknotes}
+\pgfsetlayers{main,blacknotes}
+\tikzset{tight fit/.style={inner sep=0pt, outer sep=0pt}}
+
+
+\pgfdeclarelayer{blacknotes}
+\pgfsetlayers{main,blacknotes}
+\tikzset{tight fit/.style={inner sep=0pt, outer sep=0pt}}
+
+\begin{center}
+\begin{tikzpicture}[scale=1,every node/.style={transform shape}]
+  \def\lastnotenodename{clefs}
+  \def\minNote{40}
+  \def\maxNote{61}
+\node [text width=1cm, tight fit] (clefs) at (0,-3) {
+    \begin{music}
+        \instrumentnumber{1}
+        %\instrumentnumber{2}
+        \nostartrule        
+        \setstaffs1{1}
+        %\setstaffs2{1}  
+        %\setclef1{\bass}
+        \setclef1{\treble}                                  
+        \startextract
+        \hskip2.0\elemskip
+        \zendextract
+    \end{music}
+};
+
+\foreach \note [
+    evaluate={
+        \n=int(mod(\note-1, 12));
+        \octave=int((\note+8)/12);
+        \t=int(floor((\note-1)/12)*7-7);
+        \notename={"A","","B","C","","D","","E","F","","G",""}[\n];
+        \tonicsolfa={"la","","si","so","","re","","mi","fa","","sol",""}[\n];
+        \blacknote={0,1,0,0,1,0,1,0,0,1,0,1}[\n];
+        \frequency=(2^((\note-49)/12))*440;}
+] in {\minNote,...,\maxNote}{
+    \ifnum\octave>3
+        \tikzset{extract anchor/.style={anchor=south west, at=(\lastnotenodename.south east)}}
+    \else
+        \tikzset{extract anchor/.style={anchor=north west, at=(\lastnotenodename.north east)}}
+    \fi
+    \ifnum\blacknote=0
+        \edef\notenodename{\notename_\octave}
+        \node (\notenodename) [tight fit,text width=1cm, extract anchor/.try]  {%           
+            \begin{music}
+                %\instrumentnumber{1}
+                %\instrumentnumber{2}
+                \nostartrule        
+                \setstaffs1{1}
+                %\setstaffs2{1}  
+                \setclefsymbol1{\empty}
+                %\setclefsymbol2{\empty}     
+                %\setclef1{\bass}
+                \setclef1{\treble}                      
+                \startextract
+                \transpose\t
+                \hskip-1.5\elemskip         
+                \ifnum\octave>3
+                    \ifnum\octave>4
+                \Notes  \ql{\notename} \en       
+                    \else
+                       \Notes \qu{\notename} \en                       
+                       \fi
+                       \fi
+                %\else
+                   % \ifnum\octave>2
+                    %    \Notes \ql{\notename} \en
+                    %\else
+                     %   \Notes \qu{\notename} \en
+                    %\fi
+                %\fi
+                \zendextract
+            \end{music}
+        };
+        \xdef\lastnotenodename{\notenodename}       
+        %\node [anchor=base] (sol-fa)  at (\notenodename |- 0,-3) {\tonicsolfa$_\octave$};
+
+        \draw (\notenodename.south west |- 0,-4) rectangle ++(1, -4);
+         \ifnum\n=0
+        \node [xshift=0cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=2
+        \node [xshift=0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=3
+        \node [xshift=-0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=5
+        \node [rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=7
+        \node [xshift=0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=8
+        \node [xshift=-0.2cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        \ifnum\n=10
+        \node [xshift=0.0cm,rotate=90, font=\footnotesize, anchor=east] 
+        at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        \fi
+        %\node [font=\footnotesize, anchor=south]  
+         %   at (\notenodename.south |- 0,-8) {\note};
+        \node [font=\footnotesize, anchor=south] 
+            at (\notenodename.south |- 0,-8.5)  {$\notename_\octave$};
+        %%\draw (\notenodename.south west |- sol-fa.south) 
+        %%    rectangle (\notenodename.south east |- 0,1.125); %0.125 by trial and error
+            \else
+             \ifnum\n=1 %% A#--shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=4 %% C# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=-0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=6 %% D# -- shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=9 %% F# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [xshift=-0.1cm,rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=11 %% G# -- Don't move
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.3cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              \node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+                  at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \fi
+}
+\node [rotate=90] at (0,-6) {Frequency (Hz)};
+\end{tikzpicture}
+\end{center}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+}
+
+
+
+
+
+
+
+
+\newcommand{\sharpStaff}{
+\pgfdeclarelayer{blacknotes}
+\pgfsetlayers{main,blacknotes}
+\tikzset{tight fit/.style={inner sep=0pt, outer sep=0pt}}
+%\def\t{14}
+\def\ms{\hspace{4.5pt}}
+\begin{center}
+\begin{tikzpicture}[scale=1,every node/.style={transform shape}]
+ \def\lastnotenodename{clefs}
+  \def\minNote{40}
+  \def\maxNote{51}
+\node [text width=1cm, tight fit] (clefs) at (0,-3) {};
+  \node[tight fit,anchor=west]  at (-5,-3){%           
+            \begin{music}
+                %\instrumentnumber{1}
+                %\instrumentnumber{2}
+                \nostartrule        
+                \setstaffs1{1}
+                %\setstaffs2{1}  
+                %\setclefsymbol1{\empty}
+                %\setclefsymbol2{\empty}     
+                %\setclef1{\bass}
+                \setclef1{\treble}                      
+                \startextract
+                %\transpose14
+                %\hskip-1.5\elemskip         
+                %\ifnum\octave>3
+                    %\ifnum\octave>4
+                        %\Notes \nextinstrument \ql{\notename} \en       
+                    %\else
+                    %    \Notes \nextinstrument \qu{\notename} \en                       
+                    %\fi
+                %\else
+                    %\ifnum\octave>4
+                     %   \Notes \ql{\notename}   \ql{\sh\notename}                 \en
+                    %\else
+                \notes\phantom{\qu{c}}\qu{c}\ms\qu{^c}\ms\qu{d}\ms\qu{^d}\ms\qu{e}\ms\qu{f}\ms\qu{^f}\ms\qu{g}\ms\qu{^g}\ms\qu{'a}\ms\qu{^a}\ms\qu{b}\en
+                    %\fi
+                %\fi
+                \zendextract
+            \end{music}
+        };
+
+\foreach \note [
+    evaluate={
+        \n=int(mod(\note-1, 12));
+        \octave=int((\note+8)/12);
+        \t=int(floor((\note-1)/12)*7-7);
+        \notename={"A","","B","C","","D","","E","F","","G",""}[\n];
+        \tonicsolfa={"la","","si","so","","re","","mi","fa","","sol",""}[\n];
+        \blacknote={0,1,0,0,1,0,1,0,0,1,0,1}[\n];
+        \frequency=(2^((\note-49)/12))*440;}
+] in {\minNote,...,\maxNote}{
+    \ifnum\octave>3
+        \tikzset{extract anchor/.style={anchor=south west, at=(\lastnotenodename.south east)}}
+    \else
+        \tikzset{extract anchor/.style={anchor=north west, at=(\lastnotenodename.north east)}}
+    \fi
+    \ifnum\blacknote=0
+    \edef\notenodename{\notename_\octave}
+    \xdef\lastnotenodename{\notenodename}       
+        %\node [anchor=base] (sol-fa)  at (\notenodename |- 0,-3) {\tonicsolfa$_\octave$};
+
+        \draw (\notenodename.south west |- 0,-4) rectangle ++(1, -4);
+        %\node [rotate=90, font=\footnotesize, anchor=east] 
+         %   at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        %\node [font=\footnotesize, anchor=south]  
+         %   at (\notenodename.south |- 0,-8) {\note};
+        \node [font=\footnotesize, anchor=south] 
+            at (\notenodename.south |- 0,-8.5)  {$\notename$};
+        %%\draw (\notenodename.south west |- sol-fa.south) 
+        %%    rectangle (\notenodename.south east |- 0,1.125); %0.125 by trial and error
+            \else
+            \ifnum\n=1 %% A#--shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=4 %% C# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=6 %% D# -- shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=9 %% F# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=11 %% G# -- Don't move
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.3cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \fi
+}
+%\node [rotate=90] at (0,-6) {Frequency (Hz)};
+\end{tikzpicture}
+\end{center}%
+}
+
+
+\newcommand{\ttPianoNoStaff}{%% from: https://tex.stackexchange.com/questions/136713/range-of-a-piano-keyboard-vs-staves
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 
+\pgfdeclarelayer{blacknotes}
+\pgfsetlayers{main,blacknotes}
+\tikzset{tight fit/.style={inner sep=0pt, outer sep=0pt}}
+
+\begin{center}
+\begin{tikzpicture}[scale=1,every node/.style={transform shape}]
+  \def\lastnotenodename{clefs}
+  \def\minNote{40}
+  \def\maxNote{51}
+\node [text width=1cm, tight fit] (clefs) at (0,-3) {};
+  \node[above] at (1.4,-4) {$C\sharp$};
+  \node[above] at (2.6,-4) {$D\sharp$};
+  \node[above] at (4.4,-4) {$F\sharp$};
+  \node[above] at (5.6,-4) {$G\sharp$};
+  \node[above] at (6.6,-4) {$A\sharp$};
+\foreach \note [
+    evaluate={
+        \n=int(mod(\note-1, 12));
+        \octave=int((\note+8)/12);
+        \t=int(floor((\note-1)/12)*7-7);
+        \notename={"A","","B","C","","D","","E","F","","G",""}[\n];
+        \tonicsolfa={"la","","si","so","","re","","mi","fa","","sol",""}[\n];
+        \blacknote={0,1,0,0,1,0,1,0,0,1,0,1}[\n];
+        \frequency=(2^((\note-49)/12))*440;}
+] in {\minNote,...,\maxNote}{
+    \ifnum\octave>3
+        \tikzset{extract anchor/.style={anchor=south west, at=(\lastnotenodename.south east)}}
+    \else
+        \tikzset{extract anchor/.style={anchor=north west, at=(\lastnotenodename.north east)}}
+    \fi
+    \ifnum\blacknote=0
+        \edef\notenodename{\notename_\octave}
+        \node (\notenodename) [tight fit,text width=1cm, extract anchor/.try]{};
+        \xdef\lastnotenodename{\notenodename}       
+        %\node [anchor=base] (sol-fa)  at (\notenodename |- 0,-3) {\tonicsolfa$_\octave$};
+
+        \draw (\notenodename.south west |- 0,-4) rectangle ++(1, -4);
+        %\node [rotate=90, font=\footnotesize, anchor=east] 
+         %   at (\notenodename.north |- 0,-4) {\threedp\frequency};
+        %\node [font=\footnotesize, anchor=south]  
+         %   at (\notenodename.south |- 0,-8) {\note};
+        \node [font=\footnotesize, anchor=south] 
+            at (\notenodename.south |- 0,-8.5)  {$\notename$};
+        %%\draw (\notenodename.south west |- sol-fa.south) 
+        %%    rectangle (\notenodename.south east |- 0,1.125); %0.125 by trial and error
+    \else
+    \ifnum\n=1 %% A#--shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=4 %% C# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=6 %% D# -- shift right
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.2cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=9 %% F# -- shift left
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.4cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \ifnum\n=11 %% G# -- Don't move
+            \begin{pgfonlayer}{blacknotes}
+              \fill ([xshift=-0.3cm]\lastnotenodename.north east |- 0,-4) rectangle ++(0.6, -2.5);
+              %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+              %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+            \end{pgfonlayer}
+            \fi
+            \fi
+        %\node  [rotate=90, text=white, font=\footnotesize, anchor=east]
+        %    at (\lastnotenodename.north east |- 0,-4) {\threedp\frequency};
+       }
+%\node [rotate=90] at (0,-6) {Frequency (Hz)};
+\end{tikzpicture}
+\end{center}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  
+}
+
+
+
+
+%% Circle tours
+\usetikzlibrary{bending,positioning}
+\usetikzlibrary{calc}
+\usepackage{xstring}
+
+%https://tex.stackexchange.com/questions/21559/macro-to-access-a-specific-member-of-a-list
+% This works both with inline lists and with macros containing lists
+\newcommand*{\GetListMember}[2]{%
+    \edef\dotheloop{%
+    \noexpand\foreach \noexpand\a [count=\noexpand\i] in {#1} {%
+        \noexpand\IfEq{\noexpand\i}{#2}{\noexpand\a\noexpand\breakforeach}{}%
+    }}%
+    \dotheloop
+    \par%
+}%
+%%%% 
+%%%% Circle tours
+%%%%
+% code from Heiko Oberdiek
+% https://tex.stackexchange.com/a/250270/3954
+\newcommand{\circleTour}[2]{%
+\begin{tikzpicture}[
+  ->,   
+  thick,
+  main node/.style={},
+]
+  \newcommand*{\MainNum}{12}
+  \newcommand*{\MainRadius}{3cm} 
+  \newcommand*{\MainStartAngle}{90}
+  % Print main nodes, node names: p1, p2, ...
+  \path
+    (0, 0) coordinate (M)
+    \foreach \t [count=\i] in {1,...,12} {
+      +({1-\i)*360/\MainNum + \MainStartAngle}:\MainRadius)
+      node[main node, align=center] (species_\i) {\GetListMember{#1}{\i}}
+    }
+  ;  
+
+  % Calculate the angle between the equal sides of the triangle
+  % with side length \MainRadius, \MainRadius and radius of circle node
+  % Result is stored in \p1-angle, \p2-angle, ...
+  \foreach \i in {1, ..., \MainNum} {
+    \pgfextracty{\dimen0 }{\pgfpointanchor{species_\i}{north}} 
+    \pgfextracty{\dimen2 }{\pgfpointanchor{species_\i}{center}}
+    \dimen0=\dimexpr\dimen2 - \dimen0\relax 
+    \ifdim\dimen0<0pt \dimen0 = -\dimen0 \fi
+    \pgfmathparse{2*asin(\the\dimen0/\MainRadius/2)}
+    \global\expandafter\let\csname p\i-angle\endcsname\pgfmathresult
+  }
+
+  % Draw the arrow arcs
+  \foreach \i [evaluate=\i as \nexti using {int(mod(\i, \MainNum)+1}]
+  in {1, ..., \MainNum} {  
+    \pgfmathsetmacro\StartAngle{   
+      (\i-1)*360/\MainNum + \MainStartAngle
+      + \csname p\i-angle\endcsname
+    }
+    \pgfmathsetmacro\EndAngle{
+      (\nexti-1)*360/\MainNum + \MainStartAngle
+      - \csname p\nexti-angle\endcsname
+    }
+    \ifdim\EndAngle pt < \StartAngle pt
+      \pgfmathsetmacro\EndAngle{\EndAngle + 360}
+    \fi
+    \draw[<-]
+      (M) ++(\StartAngle:\MainRadius)
+      arc[start angle=\StartAngle, end angle=\EndAngle, radius=\MainRadius]
+       node[midway,above,sloped] {\tiny{$#2$}};    
+    ;
+  }
+\end{tikzpicture}}
+%%END CIRCLE TOURS
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%
+%%% SCALE CIRCLES
+%%%%%%%%%%%%%%%%%
+
+%%%% 
+%%%% Circle tours
+%%%%
+% code from Heiko Oberdiek
+% https://tex.stackexchange.com/a/250270/3954
+\newcommand{\circlescale}[2]{%
+\begin{tikzpicture}[
+  ->,   
+  thick,
+  main node/.style={},
+]
+  \newcommand*{\MainNum}{12}
+  \newcommand*{\MainRadius}{3cm} 
+  \newcommand*{\MainStartAngle}{90}
+  % Print main nodes, node names: p1, p2, ...
+  \path
+    (0, 0) coordinate (M)
+    \foreach \t [count=\i] in {1,...,12} {
+      +({1-\i)*360/\MainNum + \MainStartAngle}:\MainRadius)
+      node[main node, align=center] (species_\i) {\GetListMember{#1}{\i}}
+    }
+  ;  
+
+  % Calculate the angle between the equal sides of the triangle
+  % with side length \MainRadius, \MainRadius and radius of circle node
+  % Result is stored in \p1-angle, \p2-angle, ...
+  \foreach \i in {1, ..., \MainNum} {
+    \pgfextracty{\dimen0 }{\pgfpointanchor{species_\i}{north}} 
+    \pgfextracty{\dimen2 }{\pgfpointanchor{species_\i}{center}}
+    \dimen0=\dimexpr\dimen2 - \dimen0\relax 
+    \ifdim\dimen0<0pt \dimen0 = -\dimen0 \fi
+    \pgfmathparse{2*asin(\the\dimen0/\MainRadius/2)}
+    \global\expandafter\let\csname p\i-angle\endcsname\pgfmathresult
+  }
+
+  % Draw the arrow arcs
+  \foreach \i [evaluate=\i as \nexti using {int(mod(\i, \MainNum)+1}]
+  in {1, ..., \MainNum} {  
+    \pgfmathsetmacro\StartAngle{   
+      (\i-1)*360/\MainNum + \MainStartAngle
+      + \csname p\i-angle\endcsname
+    }
+    \pgfmathsetmacro\EndAngle{
+      (\nexti-1)*360/\MainNum + \MainStartAngle
+      - \csname p\nexti-angle\endcsname
+    }
+    \ifdim\EndAngle pt < \StartAngle pt
+      \pgfmathsetmacro\EndAngle{\EndAngle + 360}
+    \fi
+    \draw[<-]
+      (M) ++(\StartAngle:\MainRadius)
+      arc[start angle=\StartAngle, end angle=\EndAngle, radius=\MainRadius]
+       node[midway,above,sloped] {\tiny{$#2$}};    
+    ;
+  }
+\end{tikzpicture}}
+
+
+%%%%%%
+%% FROM: https://tikz.net/waves_standing/
+%%%%%%
+\colorlet{metalcol}{black!30!white}
+\tikzstyle{vvec}=[->,vcol,very thick,line cap=round]
+\tikzstyle{node}=[xcol,scale=0.8]
+\tikzstyle{metal}=[draw=metalcol!10!black,rounded corners=0.1,
+  top color=metalcol,bottom color=metalcol!80!black,shading angle=10]
+\tikzstyle{ring}=[metalcol!20!black,double=metalcol!70!black,double distance=1.2,line width=0.3]
+\tikzstyle{rope}=[white!10!black,double=white!50!black,
+  double distance=1.2,line width=0.6] %very thick,line cap=round
+\tikzstyle{wood}=[draw=white!80!black,rounded corners=0.1,
+  black!50!white]
+\def\tick#1#2{\draw[thick] (#1) ++ (#2:0.1) --++ (#2-180:0.2)}
+\tikzstyle{myarr}=[-{Latex[length=3,width=2]},vcol!40]
+\tikzstyle{mydoublearr}=[{Latex[length=3,width=2]}-{Latex[length=3,width=2]},vcol!40]
+
+
+% STANDING WAVE - DOUBLE FIXED - n=1
+\def\L{5.0}
+\def\A{0.6}
+\def\t{0.12}
+\def\om{360/(\lam)} % omega (degrees)
+\def\wave#1{
+  \def\lam{2*\L/#1} % wavelength
+  \draw[wood] (0,-1.4*\A) rectangle++ (-\t,2.8*\A);
+  \draw[wood] (\L,-1.4*\A) rectangle++ ( \t,2.8*\A);
+  \draw[dashed,samples=100,smooth,variable=\x,domain=0:\L]
+   plot(\x,{-\A*sin(\om*\x)});
+  %\draw[rope,samples=100,smooth,variable=\x,domain=0:\L]
+   % plot(\x,{-\A*sin(\om*\x)});
+  \draw[rope,samples=100,smooth,variable=\x,domain=0:\L]
+    plot(\x,{\A*sin(\om*\x)});
+  \draw[metal] (0,0) circle(0.7*\t);
+  \draw[metal] (\L,0) circle(0.7*\t);
+}
+%% END STANDING Wave
+
+
+
+% Transverse WAVE - DOUBLE FIXED - n=5 but p = ?
+\def\L{5.0}
+\def\A{0.6}
+\def\t{0.12}
+\def\n{5}
+\def\om{360/(\lam)} % omega (degrees)
+\def\transverseWave#1{
+  \def\lam{2*\L/\n} % wavelength
+  \draw[wood] (0,-1.4*\A) rectangle++ (-\t,2.8*\A);
+  \draw[wood] (\L,-1.4*\A) rectangle++ ( \t,2.8*\A);
+  %\draw[dashed,samples=100,smooth,variable=\x,domain=2:3]
+   % plot(\x,{-\A*sin(\om*\x)});
+  \draw[rope,samples=100,smooth,variable=\x,domain=#1:#1+1]
+    plot(\x,{\A*sin(\om*(\x-#1))});
+
+  \draw[rope,variable=\x,domain=0:#1]
+    plot(\x,0);
+  \draw[rope,samples=100,smooth,variable=\x,domain=#1+1:5]
+    plot(\x,0);
+  \draw[metal] (0,0) circle(0.7*\t);
+  \draw[metal] (\L,0) circle(0.7*\t);
+}
+
+
+
+
+% Return Transverse WAVE - DOUBLE FIXED - n=5 but p = ?
+\def\L{5.0}
+\def\A{0.6}
+\def\t{0.12}
+\def\n{5}
+\def\om{360/(\lam)} % omega (degrees)
+\def\retTransverseWave#1{
+  \def\lam{2*\L/\n} % wavelength
+  \draw[wood] (0,-1.4*\A) rectangle++ (-\t,2.8*\A);
+  \draw[wood] (\L,-1.4*\A) rectangle++ ( \t,2.8*\A);
+  %\draw[dashed,samples=100,smooth,variable=\x,domain=2:3]
+   % plot(\x,{-\A*sin(\om*\x)});
+  \draw[rope,samples=100,smooth,variable=\x,domain=#1:#1+1]
+    plot(\x,{-\A*sin(\om*(\x-#1))});
+
+  \draw[rope,variable=\x,domain=0:#1]
+    plot(\x,0);
+  \draw[rope,samples=100,smooth,variable=\x,domain=#1+1:5]
+    plot(\x,0);
+  \draw[metal] (0,0) circle(0.7*\t);
+  \draw[metal] (\L,0) circle(0.7*\t);
+}
+
+%% END TRANSVERSE Wave
+
+
+%%MORE WAVES
+
+
+
+
+
+
+% COLLIDE WAVE
+\def\L{5.0}
+\def\A{0.6}
+\def\t{0.12}
+\def\n{5}
+\def\om{360/(\lam)} % omega (degrees)
+\def\collideWave#1{
+  \def\lam{2*\L/\n} % wavelength
+  \draw[wood] (0,-1.4*\A) rectangle++ (-\t,2.8*\A);
+  \draw[wood] (\L,-1.4*\A) rectangle++ ( \t,2.8*\A);
+  %\draw[dashed,samples=100,smooth,variable=\x,domain=2:3]
+   % plot(\x,{-\A*sin(\om*\x)});
+  \draw[rope,samples=100,smooth,variable=\x,domain=#1:#1+1]
+  plot(\x,{\A*sin(\om*(\x-#1))});
+  \draw[rope,samples=100,smooth,variable=\x,domain=5-(#1+1):5-#1]
+    plot(\x,{\A*sin(\om*((5-#1)-\x))});
+
+  \draw[rope,variable=\x,domain=0:#1]
+    plot(\x,0);
+  \draw[rope,samples=100,smooth,variable=\x,domain=#1+1:5-#1-1]
+  plot(\x,0);
+  \draw[rope,samples=100,smooth,variable=\x,domain=5-#1:5]
+    plot(\x,0);
+  \draw[metal] (0,0) circle(0.7*\t);
+  \draw[metal] (\L,0) circle(0.7*\t);
+}
+
+
+% Big WAVE
+\def\n{5}
+\def\om{360/(\lam)} % omega (degrees)
+\def\bigWave#1{
+  \def\lam{2*\L/\n} % wavelength
+  \draw[wood] (0,-1.4*\A) rectangle++ (-\t,2.8*\A);
+  \draw[wood] (\L,-1.4*\A) rectangle++ ( \t,2.8*\A);
+  %\draw[dashed,samples=100,smooth,variable=\x,domain=2:3]
+   % plot(\x,{-\A*sin(\om*\x)});
+  \draw[rope,samples=100,smooth,variable=\x,domain=2:2+1]
+  plot(\x,{1.2*sin(\om*(\x-2))});
+  
+  \draw[rope,variable=\x,domain=0:2]
+    plot(\x,0);
+  \draw[rope,samples=100,smooth,variable=\x,domain=3:5]
+  plot(\x,0);
+  \draw[metal] (0,0) circle(0.7*\t);
+  \draw[metal] (\L,0) circle(0.7*\t);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\usepackage{framed}
+\usepackage{comment}
+
+\let\instructorNotes\relax
+\let\endinstructorNotes\relax
+\let\instructorIntro\relax
+\let\endinstructorIntro\relax
+
+\ifinstructornotes
+\newenvironment{instructorNotes}{\begin{framed}\noindent \textbf{Instructor note:}}{\end{framed}}
+\newenvironment{instructorIntro}{\begin{framed}\noindent \textbf{Instructor introduction:}}{\end{framed}}
+\newcommand{\teachingnotes}{With Teaching Notes}
+\else
+        \newenvironment{instructorNotes}%
+                       {%
+                         \setbox0\vbox\bgroup
+                       }
+{\egroup\ignorespacesafterend
+                       }
+        \newenvironment{instructorIntro}%
+                       {%
+                         \setbox0\vbox\bgroup
+                       }
+{\egroup\ignorespacesafterend
+                       }
+\newcommand{\teachingnotes}{}                       
+                       \fi      
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+                       
+%%%% 
+%%%% Circle tours
+%%%%
+% code from Heiko Oberdiek
+% https://tex.stackexchange.com/a/250270/3954
+\newcommand{\circlenumb}[2]{%
+\begin{tikzpicture}[
+  ->,   
+  thick,
+  main node/.style={},
+]
+  \newcommand*{\MainNum}{11}
+  \newcommand*{\MainRadius}{3cm} 
+  \newcommand*{\MainStartAngle}{90}
+  % Print main nodes, node names: p1, p2, ...
+  \path
+    (0, 0) coordinate (M)
+    \foreach \t [count=\i] in {1,...,11} {
+      +({1-\i)*360/\MainNum + \MainStartAngle}:\MainRadius)
+      node[main node, align=center] (species_\i) {\GetListMember{#1}{\i}}
+    }
+  ;  
+
+  % Calculate the angle between the equal sides of the triangle
+  % with side length \MainRadius, \MainRadius and radius of circle node
+  % Result is stored in \p1-angle, \p2-angle, ...
+  \foreach \i in {1, ..., \MainNum} {
+    \pgfextracty{\dimen0 }{\pgfpointanchor{species_\i}{north}} 
+    \pgfextracty{\dimen2 }{\pgfpointanchor{species_\i}{center}}
+    \dimen0=\dimexpr\dimen2 - \dimen0\relax 
+    \ifdim\dimen0<0pt \dimen0 = -\dimen0 \fi
+    \pgfmathparse{2*asin(\the\dimen0/\MainRadius/2)}
+    \global\expandafter\let\csname p\i-angle\endcsname\pgfmathresult
+  }
+
+  % Draw the arrow arcs
+  \foreach \i [evaluate=\i as \nexti using {int(mod(\i, \MainNum)+1}]
+  in {1, ..., \MainNum} {  
+    \pgfmathsetmacro\StartAngle{   
+      (\i-1)*360/\MainNum + \MainStartAngle
+      + \csname p\i-angle\endcsname
+    }
+    \pgfmathsetmacro\EndAngle{
+      (\nexti-1)*360/\MainNum + \MainStartAngle
+      - \csname p\nexti-angle\endcsname
+    }
+    \ifdim\EndAngle pt < \StartAngle pt
+      \pgfmathsetmacro\EndAngle{\EndAngle + 360}
+    \fi
+    \draw[<-]
+      (M) ++(\StartAngle:\MainRadius)
+      arc[start angle=\StartAngle, end angle=\EndAngle, radius=\MainRadius]
+       node[midway,above,sloped] {\tiny{$#2$}};    
+    ;
+  }
+\end{tikzpicture}}
+%%END CIRCLE TOURS

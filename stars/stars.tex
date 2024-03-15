@@ -1,0 +1,344 @@
+\documentclass[noauthor,nooutcomes,hints,handout]{ximera}
+
+\input{../preamble.tex}
+
+\title{Stars}
+\author{Jenny Sheldon \and Bart Snapp}
+
+\begin{document}
+\begin{abstract}
+  We explore the mathematics of drawing stars.
+\end{abstract}
+\maketitle
+
+%\begin{listOutcomes}
+%\item Draw simple $n$-sided pictures of maximal dihedral symmetry.
+%\item Draw stars with $n$-sides.
+%\item Analyze the properties of $n$-sided stars.
+%\item Demonstrate a working understanding with stars and star notation.
+%\end{listOutcomes}
+
+Can you remember when you first learned to draw a star? I can! I was first taught to draw a star like this:
+\[
+\includegraphics{bartTri.pdf}
+\]
+But I wanted to know how to draw 5-pointed stars like the other
+kids. So one day I taught myself to draw a star like this:
+\[
+\includegraphics{bartTri2.pdf}
+\]
+This may seem like a silly way to draw this star---it certainly makes
+me chuckle now. Let's see if we can give a theory for drawing stars
+that will connect the two different stars above, teach you how to
+draw some new stars, and learn a little more mathematics along the
+way.
+
+
+We'll start with $5$ points equally spaced on a circle:
+\[
+\includegraphics{stfive.pdf}
+\]
+Think of these points as \textit{pins}.  Next we'll start at the top
+and draw lines that we'll think of as \textit{strings}, moving
+clockwise to the point two steps away each time:
+\[
+\includegraphics{stfive1.pdf}\qquad\includegraphics{stfive2.pdf}\qquad\includegraphics{stfive3.pdf}\qquad\includegraphics{stfive4.pdf}\qquad\includegraphics{stfive5.pdf}
+\]
+Check it out, we got a star! If we had used pins and string to make
+this star, we could have done it with one piece of string.
+
+
+
+Now start with $6$ points equally spaced on a circle. Again, we'll
+move clockwise two steps each time:
+\[
+\includegraphics{stsix1.pdf}\qquad\includegraphics{stsix2.pdf}\qquad\includegraphics{stsix3.pdf}
+\]
+Oops, we've run out of points! No worries, just start again at one of
+the points that hasn't been touched by a line yet, drawing lines and
+moving two steps each time:
+\[
+\includegraphics{stsix4.pdf}\qquad\includegraphics{stsix5.pdf}\qquad\includegraphics{stsix6.pdf}
+\]
+Ah! The other star! In this case, if we used pins and strings, we'd
+need to use \textit{two} pieces of string.
+
+
+I'm hoping that the following notation will help out:
+\[
+\stringstar{n}{s}=\left[\begin{minipage}{3.7in}
+the star with $n$ equally spaced points where we move $s$ steps clockwise
+\end{minipage}\right]
+\]
+Remember, $\stringstar{n}{s}$ is a star, \textbf{not} a fraction!
+
+With this notation, the five pointed star above would be called $\stringstar{5}{2}$, while the Star of David would be called $\stringstar{6}{2}$.
+
+
+
+\begin{question}
+Let's get a feel for stars. 
+\begin{enumerate}
+\item Draw all the seven pointed stars.
+\begin{center}
+\begin{tikzpicture}
+  \pic {circledots={7}};
+  \node at (0,0) {$\stringstar{7}{1}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={7}};
+  \node at (0,0) {$\stringstar{7}{2}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={7}};
+  \node at (0,0) {$\stringstar{7}{3}$};
+\end{tikzpicture}\\[0.25in]
+\begin{tikzpicture}
+  \pic {circledots={7}};
+  \node at (0,0) {$\stringstar{7}{4}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={7}};
+  \node at (0,0) {$\stringstar{7}{5}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={7}};
+  \node at (0,0) {$\stringstar{7}{6}$};
+\end{tikzpicture}
+\end{center}
+
+%\item Draw all the eight pointed stars.
+%\begin{center}
+%\begin{tikzpicture}
+%  \pic {circledots={8}};
+%  \node at (0,0) {$\stringstar{8}{1}$};
+%\end{tikzpicture}
+%\hspace{0.5in}
+%\begin{tikzpicture}
+%  \pic {circledots={8}};
+%  \node at (0,0) {$\stringstar{8}{2}$};
+%\end{tikzpicture}
+%\\[0.25in]
+%\begin{tikzpicture}
+%  \pic {circledots={8}};
+%  \node at (0,0) {$\stringstar{8}{3}$};
+%\end{tikzpicture}
+%\hspace{0.5in}
+%begin{tikzpicture}
+%  \pic {circledots={8}};
+%  \node at (0,0) {$\stringstar{8}{4}$};
+%\end{tikzpicture}
+%\hspace{0.5in}
+%\begin{tikzpicture}
+%  \pic {circledots={8}};
+%  \node at (0,0) {$\stringstar{8}{5}$};
+%\end{tikzpicture}
+%\hspace{0.5in}
+%\begin{tikzpicture}
+%  \pic {circledots={8}};
+%  \node at (0,0) {$\stringstar{8}{6}$};
+%\end{tikzpicture}
+%\hspace{0.5in}
+%begin{tikzpicture}
+%  \pic {circledots={8}};
+%  \node at (0,0) {$\stringstar{8}{7}$};
+%\end{tikzpicture}
+%\end{center}
+
+\newpage
+\item Draw all the twelve pointed stars.
+\begin{center}
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{1}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{2}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{3}$};
+\end{tikzpicture}
+\\[0.25in]
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{4}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{5}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{6}$};
+\end{tikzpicture}
+\\[.25in]
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{7}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{8}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{9}$};
+\end{tikzpicture}
+\\[.25in]
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{10}$};
+\end{tikzpicture}
+\hspace{0.5in}
+\begin{tikzpicture}
+  \pic {circledots={12}};
+  \node at (0,0) {$\stringstar{12}{11}$};
+\end{tikzpicture}
+\end{center}
+
+
+
+\end{enumerate}
+\end{question}
+
+
+
+\begin{question}%% GOOD _- EXPLAINS WHY CIRCLE OF FIFTHS IS CIRCLE OF FOURTHS
+  Some stars with different numbers look the same. For example:
+  \[
+  \stringstar{12}{3}\quad\text{and}\quad\stringstar{12}{9}
+  \]
+look the same.
+\begin{enumerate}
+  \item \textbf{Give a general rule} for when two
+    stars look the
+    same.
+    \answerspace
+  \item \textbf{Explain why} your rule is true.
+\answerspace
+\end{enumerate}
+\end{question}
+
+
+\begin{question}
+You might have noticed that some stars can be drawn in a single stroke, as the common five pointed star $\stringstar{5}{2}$, whereas others are made of two or more pieces, like the Star of David $\stringstar{6}{2}$.
+\[
+\includegraphics{stfive5.pdf}\qquad\includegraphics{stsix6.pdf}
+\]
+\begin{center}
+    Single stroke \qquad Two pieces
+\end{center}
+\begin{enumerate}
+
+\item Look at the stars you drew above. Find examples of stars drawn in a \textbf{single stroke}. Write their names using the notation $\stringstar{n}{s}$.
+\answerspace
+\item Give some examples of stars made of \textbf{two or more pieces}.
+\answerspace
+\item Look for patterns. Give a rule for when a star can be drawn in a single stroke.
+\end{enumerate}
+\end{question}
+
+
+\begin{question}
+Before, we only looked at stars where the step we is smaller than the total number of points. In other words, stars $\stringstar{n}{s}$ where the number on the bottom is less than the number on the top, $s<n$. Let's look at what happens if we use $s>n$.
+\begin{enumerate}
+    \item Draw the star $\stringstar{5}{6}$.
+\begin{center}
+    \begin{tikzpicture}
+  \pic {circledots={5}};
+  \node at (0,0) {$\stringstar{5}{6}$};
+\end{tikzpicture}
+\end{center}
+\item Draw the star $\stringstar{8}{12}$.
+\begin{center}
+      \begin{tikzpicture}
+  \pic {circledots={8}};
+  \node at (0,0) {$\stringstar{8}{12}$};
+\end{tikzpicture}
+\end{center}
+  \item \textbf{Give a general rule} comparing stars where the number on the bottom is \textbf{bigger} than the number on top with stars in which the number on the bottom is \textbf{smaller} than the number on top.
+  
+\end{enumerate}
+
+\end{question}
+
+%Consider a star $\stringstar{n}{s}$ where $s> n$. Find a star $\stringstar{n}{t}$ that is identical to $\stringstar{n}{s}$ where $t<n$. Explain your reasoning.
+
+
+
+\begin{freeResponse}
+  \begin{enumerate}
+  \item A star $\stringstar{n}{s}$ looks the same as $\stringstar{n}{t}$ for
+    $0 < s < t< n$ when $n=s+ t$.
+  \item This is true, because you are just drawing the star ``backwards.''
+  \item If $s$ and $t$ can be bigger than $n$, then we modify the
+    rule to be: A star $\stringstar{n}{s}$ looks the same as
+    $\stringstar{n}{t}$ for $0 < s < t< n$ when $n$ is a factor of
+    $s+t$. In essence, we just spin around the circle more times
+    before we put our point down.
+  \end{enumerate}
+\end{freeResponse}
+
+
+
+
+
+\begin{question}
+  Describe what happens when we ``reduce to
+    lowest terms'' (as you would do with a fraction!). As an example, think about how the stars
+    $\stringstar{6}{2}$ and $\stringstar{3}{1}$ are related.  \textbf{Explain why} your description holds.
+  \begin{instructorNotes}
+    \begin{enumerate}
+      \item When we ``reduce'' a star, we find the piece it is made
+        of.  The star
+        \[
+        \stringstar{12}{4}
+        \]
+        is made of pieces of $\stringstar{3}{1}$, and the fraction
+        \[
+        \frac{12}{4} = \frac{3}{1}.
+        \]
+      \item This happens, because of how stars work, and how fractions reduce.
+        \[
+        \frac{x\cdot p}{y\cdot p} =  \frac{x}{y}.
+        \]
+        This is how fractions reduce. On the other hand, with stars,
+        if $n=x\cdot p$, and $s=y\cdot p$, then we must have a
+        $\stringstar{x}{y}$ star as part of the star
+        $\stringstar{x\cdot p}{y\cdot q}$, as we are traveling from a
+        point on the circle to a point that is
+        \[
+        \frac{x\cdot p}{y\cdot q} =  \frac{x}{y}
+        \]
+        further clockwise on the circle.
+    \end{enumerate}
+  \end{instructorNotes}
+\end{question}
+
+
+
+\begin{question}
+%%  For a fixed value of $n$ how many stars could be drawn with a single
+%%  piece of string? euler phi...
+  Find  stars with the following properties:
+  \begin{enumerate}
+  \item A star made of $3$ separate $\stringstar{5}{2}$ stars.
+   \item A star with $21$ points and $7$ pieces. 
+   \item A star with $21$ points made of separate $\stringstar{7}{2}$
+     stars.
+  \end{enumerate}
+  
+\end{question}
+\end{document}

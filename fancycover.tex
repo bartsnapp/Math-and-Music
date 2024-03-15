@@ -1,0 +1,26 @@
+\makeatletter
+\input Starburst.fd
+\newcommand*\initfamily{\usefont{U}{Starburst}{xl}{n}}
+\let\othermaketitle\maketitle
+\let\otherand\and
+\renewcommand{\and}{$\bullet$}
+\renewcommand{\maketitle}{%
+  \thispagestyle{empty}
+  \flushleft{\huge\bfseries Buckeye Aha! Math Moments presents:} 
+        {\initfamily \resizebox{\textwidth}{.15\textheight}{Math}\\[10pt]
+        \begin{center}
+        \resizebox{.3\textwidth}{.08\textheight}{in} \\[10pt]
+            \end{center}
+        \resizebox{\textwidth}{.15\textheight}{music}
+}
+ \vfill
+    \begin{center}
+      \huge\bfseries\@author\\
+      \Large\today
+    \end{center}
+\newpage
+\pagestyle{main} %switch to main pagestyle, just like ximera documents.
+\let\maketitle\othermaketitle % renew maketitle to usual definition.
+\let\and\otherand % renew and to usual definition.
+}%
+\makeatother
